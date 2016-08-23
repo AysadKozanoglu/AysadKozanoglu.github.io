@@ -1,0 +1,104 @@
+{
+  "title": "mobiles Gerät",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "-1": {
+      "title": " mögliche Schlüsseln zum automatischen  Ver- und Entschlüsselung",
+      "id": 14,
+      "ideas": {
+        "1": {
+          "title": "device uuid",
+          "id": 9,
+          "ideas": {
+            "1": {
+              "title": "privat",
+              "id": 15,
+              "ideas": {
+                "1": {
+                  "title": "nicht änderbar",
+                  "id": 22
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "title": "device phoneNr",
+          "id": 10,
+          "ideas": {
+            "1": {
+              "title": "publik",
+              "id": 16,
+              "ideas": {
+                "1": {
+                  "title": "nicht änderbar",
+                  "id": 23
+                }
+              }
+            }
+          }
+        },
+        "3": {
+          "title": "device serial",
+          "id": 11,
+          "ideas": {
+            "1": {
+              "title": "privat",
+              "id": 17,
+              "ideas": {
+                "1": {
+                  "title": "nicht änderbar",
+                  "id": 24
+                }
+              }
+            }
+          }
+        },
+        "4": {
+          "title": "device id",
+          "id": 2,
+          "ideas": {
+            "1": {
+              "title": "privat",
+              "id": 18,
+              "ideas": {
+                "1": {
+                  "title": "nicht änderbar",
+                  "id": 25
+                }
+              }
+            }
+          }
+        },
+        "5": {
+          "title": "benutzer Passwort",
+          "id": 21,
+          "ideas": {
+            "1": {
+              "title": "änderbar",
+              "id": 26
+            }
+          },
+          "attr": {
+            "position": [
+              165,
+              150.5,
+              1
+            ],
+            "style": {}
+          }
+        }
+      }
+    }
+  },
+  "attr": {
+    "measurements-config": [
+      "test4"
+    ],
+    "storyboards": [
+      "Storyboard 1"
+    ],
+    "style": {}
+  }
+}
