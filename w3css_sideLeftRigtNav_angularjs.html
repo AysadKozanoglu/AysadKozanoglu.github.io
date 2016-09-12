@@ -4,9 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">      
-  <link href="style.css" rel="stylesheet" />   
   <script data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js" data-require="angular.js@1.5.x"></script>
-  <script src="app.js"></script>
+  <script>
+    var app = angular.module('app', []);
+
+    app.controller('MainCtrl', function($scope) {
+      $scope.name = 'World';
+    });
+  </script>
 </head>
 <body ng-controller="MainCtrl">
 
