@@ -27,15 +27,16 @@
         </p>
 
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu1/"> native web menu 1</a>
-        <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu2/"> native web menu 2</a>
-        <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu3/"> native web menu 3</a>
-        <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu4/"> native web menu 4</a>
-        <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu5/"> native web menu 5</a>
-        <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu6/"> native web menu 6</a>
+	native web menu 1
+        http://aysadkozanoglu.github.io/menus/menu1/
+        native web menu 2
+        http://aysadkozanoglu.github.io/menus/menu2/
+        native web menu 3
+        http://aysadkozanoglu.github.io/menus/menu3/
+        native web menu 4
+        http://aysadkozanoglu.github.io/menus/menu4/
+        native web menu 5
+        http://aysadkozanoglu.github.io/menus/menu5/
+        native web menu 6
+        http://aysadkozanoglu.github.io/menus/menu6/
 
