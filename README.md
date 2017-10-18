@@ -24,8 +24,7 @@
         <br><br>
         Display latitude and longitude on marker movement<br>
         <a href="mabox_marker_latitude.html">example</a>
-        </p>
-
+        
         <br><br>
 	native web menu 1
         http://aysadkozanoglu.github.io/menus/menu1/
@@ -39,4 +38,4 @@
         http://aysadkozanoglu.github.io/menus/menu5/
         native web menu 6
         http://aysadkozanoglu.github.io/menus/menu6/
-
+</p>
