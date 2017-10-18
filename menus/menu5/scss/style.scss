@@ -1,0 +1,128 @@
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-bottom-center() {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+$to-mobile: 520px;
+$item-h: 12rem;
+$gutter: $item-h / 10;
+$menu-size: 36rem;
+
+$clr-bg: #21264b;
+$clr-item: #28305a;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  @include flex-center();
+  
+  background-color: #1c86cf;
+  font-size: 62.5%;
+  font-family: Helvetica, sans-serif;
+  
+  @media screen and (max-width: $to-mobile) {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 50%;
+  }
+}
+
+.content {
+  position: relative;
+  width: 50vw;
+  min-width: 50rem;
+  max-width: 70rem;
+  max-height: 70rem;
+  min-height: 55rem;
+  height: 90vh;
+  
+  box-shadow: 0 0 4rem rgba(0,0,0,1);
+  background-color: $clr-bg;
+  
+  @media screen and (max-width: $to-mobile) {
+    width: 100%;
+    min-width: 30rem;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  
+  &__items--wrap {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 25rem);
+    overflow: hidden;
+  }
+  
+  &__items {
+    overflow-y: auto;
+    height: 100%;
+    width: calc(100% + 17px);
+  }
+  
+  &__menu {
+    position: absolute;
+    right: 0; bottom: 0;
+
+    width: $menu-size;
+    height: $menu-size;
+    pointer-events: none;
+  }
+}
+
+.header {
+  position: relative;
+  height: 25rem;
+  
+  @include flex-center();
+  flex-direction: column;
+  
+  &__topBar {
+    width: 70%;
+    height: 7.6rem;
+    border-radius: 3.8rem;
+    margin-bottom: $gutter * 2;
+    background-image: linear-gradient(to bottom, #fff 0%, #e5f1fe 100%);
+  }
+  
+  &__botBar {
+    width: 50%;
+    height: 6rem;
+    border-radius: 3rem;
+    background-color: #f34a33;
+  }
+  
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-image: linear-gradient(to right, #202747 0%,#28345e 50%,#202747 100%);
+  }
+}
+
+.item {
+  width: 95%;
+  height: $item-h;
+  margin: $gutter 0 $gutter 0;
+  border-radius: 0 $item-h/2 $item-h/2 0;
+  background-color: $clr-item;
+}
+
+.crc-sm, .svg__link {
+  pointer-events: auto;
+}
