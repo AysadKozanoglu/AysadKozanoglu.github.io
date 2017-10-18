@@ -38,7 +38,6 @@
         <br><br>
         Display latitude and longitude on marker movement<br>
         <a href="mabox_marker_latitude.html">example</a>
-        </p>
 
         <br><br>
 
