@@ -15,6 +15,7 @@
 
         <br>
         <a href="http://aysadkozanoglu.github.io/w3css_sideLeftRigtNav_angularjs.html">link</a>
+        
         <br><br>
         simple and lightweight pure css and html responsive / webapp / hybrid skelet one page
         <br><br>
@@ -27,6 +28,7 @@
 
         <br>
         <a href="http://aysadkozanoglu.github.io/w3css_sideLeftRigtNav_angularjs.html">link</a>
+      
         <br><br>
         simple and lightweight pure css and html responsive / webapp / hybrid skelet one page
         <br><br>
@@ -39,15 +41,16 @@
         </p>
 
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu1/"> native web menu 1</a>
+
+        [native web menu 1](http://aysadkozanoglu.github.io/menus/menu1/)
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu2/"> native web menu 2</a>
+        [I native web menu 2](http://aysadkozanoglu.github.io/menus/menu2/)
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu3/"> native web menu 3</a>
+        [native web menu 3](http://aysadkozanoglu.github.io/menus/menu3/)
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu4/"> native web menu 4</a>
+         [native web menu 4](http://aysadkozanoglu.github.io/menus/menu4/)
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu5/"> native web menu 5</a>
+         [native web menu 5](http://aysadkozanoglu.github.io/menus/menu5/)
         <br><br>
-        <a href="http://aysadkozanoglu.github.io/menus/menu6/"> native web menu 6</a>
+        [native web menu 6](http://aysadkozanoglu.github.io/menus/menu6/)
 
