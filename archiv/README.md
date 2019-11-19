@@ -1,2 +1,0 @@
-
-## http://aysadkozanoglu.github.io
