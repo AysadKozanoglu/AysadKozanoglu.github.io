@@ -70,13 +70,19 @@ svg {
   text-align: center;
 }
 
-button{
+.button {
+  background-color: #ffffff;
+  border: none;
   color: #fe4848;
-  font-size:12px;
-  padding: 0 0 0 0;
-  width:100%;
-  cursor:pointer;
-}
+  padding: 5px 10px;
+  text-align: center;
+  font-weight:bold;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}    
 
 .memberOf{
   position:absolute;
@@ -138,12 +144,12 @@ button{
   </div>
   <div class="contacts">
  <ul class="contact">
-        <li> <a target="_top"href="https://github.com/AysadKozanoglu"><button>Github</button></a> </li>
-        <li> <a target="_top"href="https://gist.github.com/AysadKozanoglu"><button>Gists</button></a> </li>
-        <li> <a target="_top"href="https://www.commandlinefu.com/commands/by/aysadk"><button>cliFoo</button></a></li>
-        <li> <a target="_top"href="http://aysad.pe.hu/ipcountry"><button>IPDB</button></a> </li>
-        <li> <a target="_top"href="https://hub.docker.com/u/aysadk"><button>DockerHub</button></a> </li>
-        <li> <a target="_top"href="https://forge.puppet.com/aysadk"><button>PuppetLabs</button></a> </li>
+        <li> <a target="_top"href="https://github.com/AysadKozanoglu"><div class="button">Github</div></a> </li>
+        <li> <a target="_top"href="https://gist.github.com/AysadKozanoglu"><div class="button">Gists</div></a> </li>
+        <li> <a target="_top"href="https://www.commandlinefu.com/commands/by/aysadk"><div class="button">cliFoo</div></a></li>
+        <li> <a target="_top"href="http://aysad.pe.hu/ipcountry"><div class="button">IPDB</div></a> </li>
+        <li> <a target="_top"href="https://hub.docker.com/u/aysadk"><div class="button">DockerHub</div></a> </li>
+        <li> <a target="_top"href="https://forge.puppet.com/aysadk"><div class="button">PuppetLabs</div></a> </li>
       </ul>
 </div>
 
@@ -223,4 +229,3 @@ forEach(e => animateWithRandomNumber(e, 1080, -1080));
     </script>
 </body>
 </html>
-
