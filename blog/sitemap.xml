@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aysadkozanoglu.github.io/blog/2023/11/28/encryption/openssl/aes256/howto/</loc>
+    
+    <lastmod>2023-11-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aysadkozanoglu.github.io/blog/2023/11/28/lvm/raid1/disk/mount/recovery/howto/</loc>
     
     <lastmod>2023-11-28</lastmod>
@@ -45,6 +54,41 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/tags/aes256/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/tags/encryption/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/tags/decryption/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/tags/openssl/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/tags/files/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://aysadkozanoglu.github.io/blog/tags/lvm/</loc>
@@ -106,6 +150,27 @@
   
   <url>
     <loc>https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/mount/recovery/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/categories/encryption/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/categories/encryption/openssl/</loc>
+    <lastmod>2023-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/categories/encryption/openssl/aes256/</loc>
     <lastmod>2023-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
