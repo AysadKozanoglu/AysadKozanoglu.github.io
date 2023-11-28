@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/blog/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=oswald:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -150,16 +150,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -176,6 +176,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/2023/11/28/encrypt/decrypt/aes-256/openssl/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/11/28/encrypt/decrypt/aes-256/openssl/howto/" class="post-title-link" itemprop="url">encrypt & decrypt test in console interactive mode with openssl</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-28 20:44:56 / Modified: 20:50:00" itemprop="dateCreated datePublished" datetime="2023-11-28T20:44:56+01:00">2023-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/" itemprop="url" rel="index"><span itemprop="name">encrypt</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/" itemprop="url" rel="index"><span itemprop="name">decrypt</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/aes-256/" itemprop="url" rel="index"><span itemprop="name">aes-256</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/aes-256/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="AES-256-interactive-mode-encryption-and-decryption"><a href="#AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="AES-256 interactive mode encryption and decryption"></a>AES-256 interactive mode encryption and decryption</h2><h2 id="encryption-interactive-mode-with-openssl"><a href="#encryption-interactive-mode-with-openssl" class="headerlink" title="encryption interactive mode with openssl"></a>encryption interactive mode with openssl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unset -v PASS</span><br><span class="line">unset -v STRING</span><br><span class="line">echo -e &quot;\n\n Text to encrypt:&quot;; read STRING;</span><br><span class="line">echo -e &quot;\n\nPassword: &quot;; read -s PASS;</span><br><span class="line">echo -e &quot;\n&quot;; echo Encrypted:;</span><br><span class="line">printf &quot;$STRING&quot; | openssl enc -e -base64 -A -a -pbkdf2 -aes-256-cbc -pass pass:&quot;$PASS&quot;;</span><br><span class="line">echo -e &quot;\n\n&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unset -v PASS</span><br><span class="line">unset -v STRING</span><br><span class="line">echo -e &quot;\n\n Encrypted text:&quot;; read STRING; </span><br><span class="line">echo -e &quot;\n\n Password: &quot;; read -s PASS;</span><br><span class="line">echo -e &quot;\n\nDecrypted:&quot;; </span><br><span class="line">printf &quot;$STRING&quot; | openssl enc -d -base64 -A -aes-256-cbc -a -pbkdf2  -pass pass:&quot;$PASS&quot;</span><br><span class="line">echo -e &quot;\n\n&quot;</span><br></pre></td></tr></table></figure>
+
+<p>demo:</p>
+<script type="text/javascript" src="https://asciinema.org/a/GyrKDC6Ep3rYhEhCTXu0F57UE.js" id="asciicast-GyrKDC6Ep3rYhEhCTXu0F57UE" async></script>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -215,7 +311,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:15:26" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
+      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:21:02" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -245,13 +341,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><p>encrypt file secret.txt with openssl</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure>
+          <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: give your password double to protect encryption </p>
 </blockquote>
-<p>decrypt file secret.txt.enc openssl</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure>
+<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: you will be ask for your given protected given password </p>
 </blockquote>
