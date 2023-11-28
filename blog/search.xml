@@ -4,11 +4,54 @@
   
     
     <entry>
+      <title>encrypt &amp; decrypt test in console interactive mode with openssl</title>
+      <link href="/blog/2023/11/28/encrypt/decrypt/aes-256/openssl/howto/"/>
+      <url>/blog/2023/11/28/encrypt/decrypt/aes-256/openssl/howto/</url>
+      
+        <content type="html"><![CDATA[<h2 id="AES-256-interactive-mode-encryption-and-decryption"><a href="#AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="AES-256 interactive mode encryption and decryption"></a>AES-256 interactive mode encryption and decryption</h2><h2 id="encryption-interactive-mode-with-openssl"><a href="#encryption-interactive-mode-with-openssl" class="headerlink" title="encryption interactive mode with openssl"></a>encryption interactive mode with openssl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unset -v PASS</span><br><span class="line">unset -v STRING</span><br><span class="line">echo -e &quot;\n\n Text to encrypt:&quot;; read STRING;</span><br><span class="line">echo -e &quot;\n\nPassword: &quot;; read -s PASS;</span><br><span class="line">echo -e &quot;\n&quot;; echo Encrypted:;</span><br><span class="line">printf &quot;$STRING&quot; | openssl enc -e -base64 -A -a -pbkdf2 -aes-256-cbc -pass pass:&quot;$PASS&quot;;</span><br><span class="line">echo -e &quot;\n\n&quot;</span><br></pre></td></tr></table></figure><h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unset -v PASS</span><br><span class="line">unset -v STRING</span><br><span class="line">echo -e &quot;\n\n Encrypted text:&quot;; read STRING; </span><br><span class="line">echo -e &quot;\n\n Password: &quot;; read -s PASS;</span><br><span class="line">echo -e &quot;\n\nDecrypted:&quot;; </span><br><span class="line">printf &quot;$STRING&quot; | openssl enc -d -base64 -A -aes-256-cbc -a -pbkdf2  -pass pass:&quot;$PASS&quot;</span><br><span class="line">echo -e &quot;\n\n&quot;</span><br></pre></td></tr></table></figure><p>demo:</p><script type="text/javascript" src="https://asciinema.org/a/GyrKDC6Ep3rYhEhCTXu0F57UE.js" id="asciicast-GyrKDC6Ep3rYhEhCTXu0F57UE" async></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> encrypt </category>
+          
+          <category> decrypt </category>
+          
+          <category> aes-256 </category>
+          
+          <category> openssl </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> aes256 </tag>
+            
+            <tag> openssl </tag>
+            
+            <tag> aes-256 </tag>
+            
+            <tag> crypt </tag>
+            
+            <tag> decrypt </tag>
+            
+            <tag> interactive </tag>
+            
+            <tag> console </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AES256 encryption and decryption file(s) with openssl</title>
       <link href="/blog/2023/11/28/encryption/openssl/aes256/howto/"/>
       <url>/blog/2023/11/28/encryption/openssl/aes256/howto/</url>
       
-        <content type="html"><![CDATA[<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><p>encrypt file secret.txt with openssl</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure><blockquote><p>info: give your password double to protect encryption </p></blockquote><p>decrypt file secret.txt.enc openssl</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure><blockquote><p>info: you will be ask for your given protected given password </p></blockquote><p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p><p>thanks for reading</p><p>–<br>Aysad Kozanoglu</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure><blockquote><p>info: give your password double to protect encryption </p></blockquote><h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure><blockquote><p>info: you will be ask for your given protected given password </p></blockquote><p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p><p>thanks for reading</p><p>–<br>Aysad Kozanoglu</p>]]></content>
       
       
       <categories>
@@ -69,9 +112,9 @@
             
             <tag> recovery </tag>
             
-            <tag> disk </tag>
-            
             <tag> mount </tag>
+            
+            <tag> disk </tag>
             
         </tags>
       
