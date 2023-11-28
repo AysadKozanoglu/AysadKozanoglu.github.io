@@ -1,8 +1,14 @@
+https://aysadkozanoglu.github.io/blog/2023/11/28/encryption/openssl/aes256/howto/
 https://aysadkozanoglu.github.io/blog/2023/11/28/lvm/raid1/disk/mount/recovery/howto/
 https://aysadkozanoglu.github.io/blog/test-4/index.html
 https://aysadkozanoglu.github.io/blog/test/4.html
 https://aysadkozanoglu.github.io/blog/about/index.html
 https://aysadkozanoglu.github.io/blog
+https://aysadkozanoglu.github.io/blog/tags/aes256/
+https://aysadkozanoglu.github.io/blog/tags/encryption/
+https://aysadkozanoglu.github.io/blog/tags/decryption/
+https://aysadkozanoglu.github.io/blog/tags/openssl/
+https://aysadkozanoglu.github.io/blog/tags/files/
 https://aysadkozanoglu.github.io/blog/tags/lvm/
 https://aysadkozanoglu.github.io/blog/tags/recovery/
 https://aysadkozanoglu.github.io/blog/tags/disk/
@@ -12,3 +18,6 @@ https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/mount/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/mount/recovery/
+https://aysadkozanoglu.github.io/blog/categories/encryption/
+https://aysadkozanoglu.github.io/blog/categories/encryption/openssl/
+https://aysadkozanoglu.github.io/blog/categories/encryption/openssl/aes256/

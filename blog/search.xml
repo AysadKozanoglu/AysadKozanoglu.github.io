@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title>AES256 encryption and decryption file(s) with openssl</title>
+      <link href="/blog/2023/11/28/encryption/openssl/aes256/howto/"/>
+      <url>/blog/2023/11/28/encryption/openssl/aes256/howto/</url>
+      
+        <content type="html"><![CDATA[<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><p>encrypt file secret.txt with openssl</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure><blockquote><p>info: give your password double to protect encryption </p></blockquote><p>decrypt file secret.txt.enc openssl</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure><blockquote><p>info: you will be ask for your given protected given password </p></blockquote><p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p><p>thanks for reading</p><p>–<br>Aysad Kozanoglu</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> encryption </category>
+          
+          <category> openssl </category>
+          
+          <category> aes256 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> aes256 </tag>
+            
+            <tag> encryption </tag>
+            
+            <tag> decryption </tag>
+            
+            <tag> openssl </tag>
+            
+            <tag> files </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LVM raid1 recovery: mount disk on another linux system debian buster</title>
       <link href="/blog/2023/11/28/lvm/raid1/disk/mount/recovery/howto/"/>
       <url>/blog/2023/11/28/lvm/raid1/disk/mount/recovery/howto/</url>

@@ -150,16 +150,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -176,6 +176,105 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/2023/11/28/encryption/openssl/aes256/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/11/28/encryption/openssl/aes256/howto/" class="post-title-link" itemprop="url">AES256 encryption and decryption file(s) with openssl</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:15:26" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/openssl/aes256/" itemprop="url" rel="index"><span itemprop="name">aes256</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><p>encrypt file secret.txt with openssl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: give your password double to protect encryption </p>
+</blockquote>
+<p>decrypt file secret.txt.enc openssl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: you will be ask for your given protected given password </p>
+</blockquote>
+<p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
+<p>thanks for reading</p>
+<p>–<br>Aysad Kozanoglu</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
