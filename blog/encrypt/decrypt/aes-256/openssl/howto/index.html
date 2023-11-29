@@ -20,25 +20,34 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aysad Kozanoglu">
-<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/archives/index.html">
+    <meta name="description" content="AES-256 interactive mode encryption and decryptionencryption interactive mode with openssl1234567unset -v PASSunset -v STRINGecho -e &quot;\n\n Text to encrypt:&quot;; read STRING;echo -e &quot;\n\nPa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="encrypt &amp; decrypt test in console interactive mode with openssl">
+<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
+<meta property="og:description" content="AES-256 interactive mode encryption and decryptionencryption interactive mode with openssl1234567unset -v PASSunset -v STRINGecho -e &quot;\n\n Text to encrypt:&quot;; read STRING;echo -e &quot;\n\nPa">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-28T19:44:56.000Z">
+<meta property="article:modified_time" content="2023-11-28T19:50:00.991Z">
 <meta property="article:author" content="Aysad Kozanoglu">
+<meta property="article:tag" content="aes256">
+<meta property="article:tag" content="openssl">
+<meta property="article:tag" content="aes-256">
+<meta property="article:tag" content="crypt">
+<meta property="article:tag" content="decrypt">
+<meta property="article:tag" content="interactive">
+<meta property="article:tag" content="console">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/archives/">
+<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/","path":"encrypt/decrypt/aes-256/openssl/howto/","title":"encrypt & decrypt test in console interactive mode with openssl"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Aysad Kozanoglu</title>
+<title>encrypt & decrypt test in console interactive mode with openssl | Aysad Kozanoglu</title>
   
 
 
@@ -71,7 +80,7 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Aysad Kozanoglu</h1>
+      <p class="site-title">Aysad Kozanoglu</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Linux Server System <br>operator / administrator</p>
@@ -125,7 +134,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -138,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AES-256-interactive-mode-encryption-and-decryption"><span class="nav-number">1.</span> <span class="nav-text">AES-256 interactive mode encryption and decryption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#encryption-interactive-mode-with-openssl"><span class="nav-number">2.</span> <span class="nav-text">encryption interactive mode with openssl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aes-256-decryption-interactive-mode-with-openssl"><span class="nav-number">3.</span> <span class="nav-text">aes-256 decryption interactive mode with openssl</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,89 +205,123 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="encrypt & decrypt test in console interactive mode with openssl | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          encrypt & decrypt test in console interactive mode with openssl
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="Created: 2023-11-28 20:44:56 / Modified: 20:50:00" itemprop="dateCreated datePublished" datetime="2023-11-28T20:44:56+01:00">2023-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/" itemprop="url" rel="index"><span itemprop="name">encrypt</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/" itemprop="url" rel="index"><span itemprop="name">decrypt</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/aes-256/" itemprop="url" rel="index"><span itemprop="name">aes-256</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encrypt/decrypt/aes-256/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="AES-256-interactive-mode-encryption-and-decryption"><a href="#AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="AES-256 interactive mode encryption and decryption"></a>AES-256 interactive mode encryption and decryption</h2><h2 id="encryption-interactive-mode-with-openssl"><a href="#encryption-interactive-mode-with-openssl" class="headerlink" title="encryption interactive mode with openssl"></a>encryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Text to encrypt:&quot;</span>; <span class="built_in">read</span> STRING;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nPassword: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span>; <span class="built_in">echo</span> Encrypted:;</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -e -<span class="built_in">base64</span> -A -a -pbkdf2 -aes-256-cbc -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span>;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Encrypted text:&quot;</span>; <span class="built_in">read</span> STRING; </span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Password: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nDecrypted:&quot;</span>; </span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -d -<span class="built_in">base64</span> -A -aes-256-cbc -a -pbkdf2  -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>demo:</p>
+<script type="text/javascript" src="https://asciinema.org/a/GyrKDC6Ep3rYhEhCTXu0F57UE.js" id="asciicast-GyrKDC6Ep3rYhEhCTXu0F57UE" async></script>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T20:44:56+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/encrypt/decrypt/aes-256/openssl/howto/" itemprop="url">
-          <span itemprop="name">encrypt & decrypt test in console interactive mode with openssl</span>
-        </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/aes256/" rel="tag"># aes256</a>
+              <a href="/blog/tags/openssl/" rel="tag"># openssl</a>
+              <a href="/blog/tags/aes-256/" rel="tag"># aes-256</a>
+              <a href="/blog/tags/crypt/" rel="tag"># crypt</a>
+              <a href="/blog/tags/decrypt/" rel="tag"># decrypt</a>
+              <a href="/blog/tags/interactive/" rel="tag"># interactive</a>
+              <a href="/blog/tags/console/" rel="tag"># console</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/encryption/openssl/aes256/howto/" rel="prev" title="AES256 encryption and decryption file(s) with openssl">
+                  <i class="fa fa-angle-left"></i> AES256 encryption and decryption file(s) with openssl
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T17:11:08+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/encryption/openssl/aes256/howto/" itemprop="url">
-          <span itemprop="name">AES256 encryption and decryption file(s) with openssl</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T15:30:13+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/lvm/raid1/disk/mount/recovery/howto/" itemprop="url">
-          <span itemprop="name">LVM raid1 recovery: mount disk on another linux system debian buster</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>
@@ -335,7 +379,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/archives/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

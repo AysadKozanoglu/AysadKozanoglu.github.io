@@ -20,25 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aysad Kozanoglu">
-<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/index.html">
+    <meta name="description" content="scenarioin my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.My system was debian buster (10). My Mainboard was crashed and i was not able to boot up my system. My OS  was installed on">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LVM raid1 recovery: mount disk on another linux system debian buster">
+<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
+<meta property="og:description" content="scenarioin my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.My system was debian buster (10). My Mainboard was crashed and i was not able to boot up my system. My OS  was installed on">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-28T14:30:13.000Z">
+<meta property="article:modified_time" content="2023-11-28T15:53:23.821Z">
 <meta property="article:author" content="Aysad Kozanoglu">
+<meta property="article:tag" content="lvm">
+<meta property="article:tag" content="recovery">
+<meta property="article:tag" content="disk">
+<meta property="article:tag" content="mount">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/">
+<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/","path":"lvm/raid1/disk/mount/recovery/howto/","title":"LVM raid1 recovery: mount disk on another linux system debian buster"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Aysad Kozanoglu</title>
+<title>LVM raid1 recovery: mount disk on another linux system debian buster | Aysad Kozanoglu</title>
   
 
 
@@ -71,7 +77,7 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Aysad Kozanoglu</h1>
+      <p class="site-title">Aysad Kozanoglu</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Linux Server System <br>operator / administrator</p>
@@ -125,7 +131,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -138,6 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scenario"><span class="nav-number">1.</span> <span class="nav-text">scenario</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#remove-disk-from-damaged-hardware"><span class="nav-number">1.1.</span> <span class="nav-text">remove disk from  damaged hardware</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#connect-disk-to-another-working-system"><span class="nav-number">1.2.</span> <span class="nav-text">connect disk to another working system</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-info-from-connected-ssd-with-usb"><span class="nav-number">2.</span> <span class="nav-text">get info from connected ssd with usb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mount-lvm-raid1-partial-disk"><span class="nav-number">3.</span> <span class="nav-text">mount lvm raid1 partial disk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#removing-missing-partial-disk-from-LVM-group"><span class="nav-number">4.</span> <span class="nav-text">removing missing partial disk from LVM group</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-UUID-from-partial-VG-disk"><span class="nav-number">5.</span> <span class="nav-text">get UUID from partial VG disk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rename-VG-volume-group-name"><span class="nav-number">6.</span> <span class="nav-text">rename VG volume group name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mount-LVM-to-mountpoint"><span class="nav-number">7.</span> <span class="nav-text">mount LVM to mountpoint</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#enable-dm-mod-in-kernel"><span class="nav-number">7.1.</span> <span class="nav-text">enable dm-mod in kernel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-mountpoint"><span class="nav-number">7.2.</span> <span class="nav-text">create mountpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mount-LVM-DISK-VG"><span class="nav-number">7.3.</span> <span class="nav-text">mount LVM DISK VG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recover-your-data"><span class="nav-number">8.</span> <span class="nav-text">recover your data</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,209 +202,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/encrypt/decrypt/aes-256/openssl/howto/" class="post-title-link" itemprop="url">encrypt & decrypt test in console interactive mode with openssl</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-28 20:44:56 / Modified: 20:50:00" itemprop="dateCreated datePublished" datetime="2023-11-28T20:44:56+01:00">2023-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encrypt/" itemprop="url" rel="index"><span itemprop="name">encrypt</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encrypt/decrypt/" itemprop="url" rel="index"><span itemprop="name">decrypt</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encrypt/decrypt/aes-256/" itemprop="url" rel="index"><span itemprop="name">aes-256</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encrypt/decrypt/aes-256/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="AES-256-interactive-mode-encryption-and-decryption"><a href="#AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="AES-256 interactive mode encryption and decryption"></a>AES-256 interactive mode encryption and decryption</h2><h2 id="encryption-interactive-mode-with-openssl"><a href="#encryption-interactive-mode-with-openssl" class="headerlink" title="encryption interactive mode with openssl"></a>encryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Text to encrypt:&quot;</span>; <span class="built_in">read</span> STRING;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nPassword: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span>; <span class="built_in">echo</span> Encrypted:;</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -e -<span class="built_in">base64</span> -A -a -pbkdf2 -aes-256-cbc -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span>;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Encrypted text:&quot;</span>; <span class="built_in">read</span> STRING; </span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Password: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nDecrypted:&quot;</span>; </span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -d -<span class="built_in">base64</span> -A -aes-256-cbc -a -pbkdf2  -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>demo:</p>
-<script type="text/javascript" src="https://asciinema.org/a/GyrKDC6Ep3rYhEhCTXu0F57UE.js" id="asciicast-GyrKDC6Ep3rYhEhCTXu0F57UE" async></script>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/encryption/openssl/aes256/howto/" class="post-title-link" itemprop="url">AES256 encryption and decryption file(s) with openssl</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:21:02" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/openssl/aes256/" itemprop="url" rel="index"><span itemprop="name">aes256</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: give your password double to protect encryption </p>
-</blockquote>
-<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: you will be ask for your given protected given password </p>
-</blockquote>
-<p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
-<p>thanks for reading</p>
-<p>–<br>Aysad Kozanoglu</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -411,13 +226,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
+      <meta itemprop="name" content="LVM raid1 recovery: mount disk on another linux system debian buster | Aysad Kozanoglu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/lvm/raid1/disk/mount/recovery/howto/" class="post-title-link" itemprop="url">LVM raid1 recovery: mount disk on another linux system debian buster</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          LVM raid1 recovery: mount disk on another linux system debian buster
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -465,8 +280,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="scenario"><a href="#scenario" class="headerlink" title="scenario"></a>scenario</h2><p>in my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.<br>My system was debian buster (10).</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="scenario"><a href="#scenario" class="headerlink" title="scenario"></a>scenario</h2><p>in my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.<br>My system was debian buster (10).</p>
 <p>My Mainboard was crashed and i was not able to boot up my system. My OS  was installed on  seperatly 240GB ssd.</p>
 <p>So my soft raid1 with LVM for the 2 disk with 2TB ssd, i was not able to get my data from there.</p>
 <ul>
@@ -525,7 +339,6 @@
 <p>thanks for reading , i hope i helped you</p>
 <p>–<br>Aysad Kozanoglu</p>
 
-      
     </div>
 
     
@@ -533,11 +346,28 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/blog/tags/lvm/" rel="tag"># lvm</a>
+              <a href="/blog/tags/recovery/" rel="tag"># recovery</a>
+              <a href="/blog/tags/disk/" rel="tag"># disk</a>
+              <a href="/blog/tags/mount/" rel="tag"># mount</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/encryption/openssl/aes256/howto/" rel="next" title="AES256 encryption and decryption file(s) with openssl">
+                  AES256 encryption and decryption file(s) with openssl <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
@@ -599,7 +429,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

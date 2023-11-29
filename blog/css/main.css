@@ -222,7 +222,7 @@ body {
   box-sizing: border-box;
   color: var(--text-color);
   font-family: oswald, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1em;
+  font-size: 0.88em;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -240,22 +240,22 @@ h6 {
   margin: 30px 0 15px;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 0.985em;
 }
 h2 {
-  font-size: 1.375em;
+  font-size: 0.86em;
 }
 h3 {
-  font-size: 1.25em;
+  font-size: 0.735em;
 }
 h4 {
-  font-size: 1.125em;
+  font-size: 0.61em;
 }
 h5 {
-  font-size: 1em;
+  font-size: 0.485em;
 }
 h6 {
-  font-size: 0.875em;
+  font-size: 0.36em;
 }
 p {
   margin: 0 0 20px;
@@ -1039,7 +1039,7 @@ pre code {
 }
 .site-title {
   font-family: oswald, oswald, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1.115em;
+  font-size: 0.9em;
   font-weight: normal;
   line-height: 1.5;
   margin: 0;
@@ -1174,6 +1174,43 @@ pre code {
 .book-mark-link:hover,
 .book-mark-link-fixed {
   top: -2px;
+}
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  color: #fff;
+  fill: var(--theme-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 5;
+}
+@media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
+  .github-corner svg {
+    color: var(--theme-color);
+    fill: #fff;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
 }
 .sidebar-inner {
   color: #999;
@@ -1426,20 +1463,6 @@ pre code {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-.post-toc .nav .nav-child {
-  --height: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition-property: height, opacity, visibility;
-  transition: 0.2s ease-in-out;
-  visibility: hidden;
-}
-.post-toc .nav .active > .nav-child {
-  height: var(--height, auto);
-  opacity: 1;
-  visibility: unset;
 }
 .post-toc .nav .active > a {
   border-bottom-color: #fc6423;
