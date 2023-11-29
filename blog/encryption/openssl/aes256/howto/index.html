@@ -20,25 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aysad Kozanoglu">
-<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/archives/index.html">
+    <meta name="description" content="AES256 file encryptionencrypt file secret.txt with openssl1openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc  info: give your password double to protect encryption   decrypt fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AES256 encryption and decryption file(s) with openssl">
+<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="LInux System Operator sysOp &#x2F; System Administrator sysAd">
+<meta property="og:description" content="AES256 file encryptionencrypt file secret.txt with openssl1openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc  info: give your password double to protect encryption   decrypt fi">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-28T16:11:08.000Z">
+<meta property="article:modified_time" content="2023-11-28T16:21:02.070Z">
 <meta property="article:author" content="Aysad Kozanoglu">
+<meta property="article:tag" content="aes256">
+<meta property="article:tag" content="encryption">
+<meta property="article:tag" content="decryption">
+<meta property="article:tag" content="openssl">
+<meta property="article:tag" content="files">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/archives/">
+<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/","path":"encryption/openssl/aes256/howto/","title":"AES256 encryption and decryption file(s) with openssl"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Aysad Kozanoglu</title>
+<title>AES256 encryption and decryption file(s) with openssl | Aysad Kozanoglu</title>
   
 
 
@@ -71,7 +78,7 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Aysad Kozanoglu</h1>
+      <p class="site-title">Aysad Kozanoglu</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Linux Server System <br>operator / administrator</p>
@@ -125,7 +132,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -138,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AES256-file-encryption"><span class="nav-number">1.</span> <span class="nav-text">AES256 file encryption</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encrypt-file-secret-txt-with-openssl"><span class="nav-number">1.1.</span> <span class="nav-text">encrypt file secret.txt with openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decrypt-file-secret-txt-enc-openssl"><span class="nav-number">1.2.</span> <span class="nav-text">decrypt file secret.txt.enc openssl</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,89 +203,125 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AES256 encryption and decryption file(s) with openssl | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AES256 encryption and decryption file(s) with openssl
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:21:02" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/encryption/openssl/aes256/" itemprop="url" rel="index"><span itemprop="name">aes256</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: give your password double to protect encryption </p>
+</blockquote>
+<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: you will be ask for your given protected given password </p>
+</blockquote>
+<p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
+<p>thanks for reading</p>
+<p>–<br>Aysad Kozanoglu</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T20:44:56+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/encrypt/decrypt/aes-256/openssl/howto/" itemprop="url">
-          <span itemprop="name">encrypt & decrypt test in console interactive mode with openssl</span>
-        </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/aes256/" rel="tag"># aes256</a>
+              <a href="/blog/tags/encryption/" rel="tag"># encryption</a>
+              <a href="/blog/tags/decryption/" rel="tag"># decryption</a>
+              <a href="/blog/tags/openssl/" rel="tag"># openssl</a>
+              <a href="/blog/tags/files/" rel="tag"># files</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/lvm/raid1/disk/mount/recovery/howto/" rel="prev" title="LVM raid1 recovery: mount disk on another linux system debian buster">
+                  <i class="fa fa-angle-left"></i> LVM raid1 recovery: mount disk on another linux system debian buster
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/encrypt/decrypt/aes-256/openssl/howto/" rel="next" title="encrypt & decrypt test in console interactive mode with openssl">
+                  encrypt & decrypt test in console interactive mode with openssl <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T17:11:08+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/encryption/openssl/aes256/howto/" itemprop="url">
-          <span itemprop="name">AES256 encryption and decryption file(s) with openssl</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T15:30:13+01:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/blog/lvm/raid1/disk/mount/recovery/howto/" itemprop="url">
-          <span itemprop="name">LVM raid1 recovery: mount disk on another linux system debian buster</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>
@@ -335,7 +379,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/archives/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
