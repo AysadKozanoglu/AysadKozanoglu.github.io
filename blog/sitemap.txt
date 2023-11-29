@@ -1,3 +1,4 @@
+https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/
 https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/
 https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/
 https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/
@@ -19,6 +20,10 @@ https://aysadkozanoglu.github.io/blog/tags/lvm/
 https://aysadkozanoglu.github.io/blog/tags/recovery/
 https://aysadkozanoglu.github.io/blog/tags/disk/
 https://aysadkozanoglu.github.io/blog/tags/mount/
+https://aysadkozanoglu.github.io/blog/tags/cryptsetup/
+https://aysadkozanoglu.github.io/blog/tags/LUKS/
+https://aysadkozanoglu.github.io/blog/tags/virtual-Disk/
+https://aysadkozanoglu.github.io/blog/tags/mountm/
 https://aysadkozanoglu.github.io/blog/categories/encryption/
 https://aysadkozanoglu.github.io/blog/categories/encrypt/
 https://aysadkozanoglu.github.io/blog/categories/encryption/openssl/
@@ -31,3 +36,8 @@ https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/mount/
 https://aysadkozanoglu.github.io/blog/categories/lvm/raid1/disk/mount/recovery/
+https://aysadkozanoglu.github.io/blog/categories/cryptsetup/
+https://aysadkozanoglu.github.io/blog/categories/cryptsetup/luks/
+https://aysadkozanoglu.github.io/blog/categories/cryptsetup/luks/encryption/
+https://aysadkozanoglu.github.io/blog/categories/cryptsetup/luks/encryption/virtual/
+https://aysadkozanoglu.github.io/blog/categories/cryptsetup/luks/encryption/virtual/disk/

@@ -20,32 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
+    <meta name="description" content="flowchart LR    id1[&#x2F;Create virtual Disk&#x2F;]--&gt;    id2[&#x2F;LUKS format&#x2F;]--&gt;    id3[&#x2F;set passphrase&#x2F;]--&gt;    id4[&#x2F;format with ext4 &#x2F;]--&gt;    id5[&#x2F;create mount ṕoint&#x2F;]--&gt;    id6[&#x2F;detach mount &#x2F;]--&gt;    id7[&#x2F;clo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AES256 encryption and decryption file(s) with openssl">
-<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/index.html">
+<meta property="og:title" content="cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it">
+<meta property="og:url" content="https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
+<meta property="og:description" content="flowchart LR    id1[&#x2F;Create virtual Disk&#x2F;]--&gt;    id2[&#x2F;LUKS format&#x2F;]--&gt;    id3[&#x2F;set passphrase&#x2F;]--&gt;    id4[&#x2F;format with ext4 &#x2F;]--&gt;    id5[&#x2F;create mount ṕoint&#x2F;]--&gt;    id6[&#x2F;detach mount &#x2F;]--&gt;    id7[&#x2F;clo">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-11-28T16:11:08.000Z">
-<meta property="article:modified_time" content="2023-11-29T19:08:35.115Z">
+<meta property="article:published_time" content="2023-11-29T20:44:53.000Z">
+<meta property="article:modified_time" content="2023-11-29T21:34:56.324Z">
 <meta property="article:author" content="Aysad Kozanoglu">
-<meta property="article:tag" content="aes256">
 <meta property="article:tag" content="encryption">
 <meta property="article:tag" content="decryption">
-<meta property="article:tag" content="openssl">
-<meta property="article:tag" content="files">
+<meta property="article:tag" content="mount">
+<meta property="article:tag" content="cryptsetup">
+<meta property="article:tag" content="LUKS">
+<meta property="article:tag" content="virtual Disk">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/">
+<link rel="canonical" href="https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/","path":"encryption/openssl/aes256/howto/","title":"AES256 encryption and decryption file(s) with openssl"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/","path":"cryptsetup/luks/encryption/virtual/disk/howto/","title":"cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AES256 encryption and decryption file(s) with openssl | Aysad Kozanoglu</title>
+<title>cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it | Aysad Kozanoglu</title>
   
 
 
@@ -145,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AES256-file-encryption"><span class="nav-number">1.</span> <span class="nav-text">AES256 file encryption</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encrypt-file-secret-txt-with-openssl"><span class="nav-number">1.1.</span> <span class="nav-text">encrypt file secret.txt with openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decrypt-file-secret-txt-enc-openssl"><span class="nav-number">1.2.</span> <span class="nav-text">decrypt file secret.txt.enc openssl</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-number">1.</span> <span class="nav-text">overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-virtual-Disk-file"><span class="nav-number">2.</span> <span class="nav-text">Creating virtual Disk file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Disk-Encryption-preparation"><span class="nav-number">3.</span> <span class="nav-text">Disk Encryption preparation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#format-and-encrypt-virtual-disk"><span class="nav-number">3.1.</span> <span class="nav-text">format and encrypt virtual disk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-LUKS-encrypted-virtual-disk"><span class="nav-number">3.2.</span> <span class="nav-text">open LUKS encrypted virtual disk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check-LUKS-opened-virual-Disk-on-dev-mapper"><span class="nav-number">4.</span> <span class="nav-text">check LUKS opened virual Disk on &#x2F;dev&#x2F;mapper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#format-inside-opened-LUKS-the-virtual-Disk-with-your-prefered-file-system"><span class="nav-number">4.1.</span> <span class="nav-text">format inside opened LUKS the virtual Disk with your prefered file system</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mount-LUKS-encrypted-virtual-disk"><span class="nav-number">5.</span> <span class="nav-text">Mount LUKS encrypted virtual disk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-mountpoint-for-LUKS-virtual-disk"><span class="nav-number">5.1.</span> <span class="nav-text">create mountpoint for LUKS virtual disk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mount-LUKS-virtual-disk-to-mointpoint"><span class="nav-number">5.2.</span> <span class="nav-text">mount LUKS virtual disk to mointpoint</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#closing-LUKS-opened-virtual-disk"><span class="nav-number">6.</span> <span class="nav-text">closing LUKS opened virtual disk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#detach-moinpoint"><span class="nav-number">6.1.</span> <span class="nav-text">detach moinpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close-LUKS-virtual-Disk"><span class="nav-number">6.2.</span> <span class="nav-text">close LUKS virtual Disk</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -214,7 +215,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -227,12 +228,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="AES256 encryption and decryption file(s) with openssl | Aysad Kozanoglu">
+      <meta itemprop="name" content="cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it | Aysad Kozanoglu">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AES256 encryption and decryption file(s) with openssl
+          cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it
         </h1>
 
         <div class="post-meta-container">
@@ -242,15 +243,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-11-28 17:11:08" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 20:08:35" itemprop="dateModified" datetime="2023-11-29T20:08:35+01:00">2023-11-29</time>
+      <time title="Created: 2023-11-29 21:44:53 / Modified: 22:34:56" itemprop="dateCreated datePublished" datetime="2023-11-29T21:44:53+01:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,15 +253,23 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
+          <a href="/blog/categories/cryptsetup/" itemprop="url" rel="index"><span itemprop="name">cryptsetup</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/openssl/" itemprop="url" rel="index"><span itemprop="name">openssl</span></a>
+          <a href="/blog/categories/cryptsetup/luks/" itemprop="url" rel="index"><span itemprop="name">luks</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/encryption/openssl/aes256/" itemprop="url" rel="index"><span itemprop="name">aes256</span></a>
+          <a href="/blog/categories/cryptsetup/luks/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/encryption/virtual/" itemprop="url" rel="index"><span itemprop="name">virtual</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/encryption/virtual/disk/" itemprop="url" rel="index"><span itemprop="name">disk</span></a>
         </span>
     </span>
 
@@ -279,47 +282,69 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">journey
-    title openssl aes-256 file encryption
-    section on Console
-      openssl : 3: use case
-      aes-256-cbc: 4: use case
-      file: 5: use case
-      secret: 6: use case</pre>
+    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">flowchart LR
+   id1[/Create virtual Disk/]-->
+   id2[/LUKS format/]-->
+   id3[/set passphrase/]-->
+   id4[/format with ext4 /]-->
+   id5[/create mount ṕoint/]-->
+   id6[/detach mount /]-->
+   id7[/close LUKS /]</pre>
 
-<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
+<h2 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h2><ul>
+<li>creating virtual disk with dd </li>
+<li>format and encrypt virtaul disk with cryptsetup <ul>
+<li>setpassphrase</li>
+</ul>
+</li>
+<li>opening encrypted virtual disk with cryptsetup<ul>
+<li>format virtual disk with ext4 mkfs</li>
+<li>create mountpoint with mkdir</li>
+<li>mount LUKS opened disk to mointpoint</li>
+<li>detach mount</li>
+<li>close LUKS</li>
+</ul>
+</li>
+</ul>
+<h2 id="Creating-virtual-Disk-file"><a href="#Creating-virtual-Disk-file" class="headerlink" title="Creating virtual Disk file"></a>Creating virtual Disk file</h2><p>virtual disk filename:<br>crypted-disk-luks.img</p>
+<p>size:<br>100MB</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=crypted-disk-luks.img  <span class="attribute">bs</span>=100M <span class="attribute">count</span>=0 <span class="attribute">seek</span>=1</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>info: give your password double to protect encryption </p>
+<p>info: with <em>fdisk -l crypted-disk-luks.img</em> you can check virtual disk size</p>
 </blockquote>
-<pre class="mermaid" style="background: none">journey
-    title openssl aes-256 file decryption
-    section on Console
-      openssl : 3: use case
-      aes-256-cbc: 4: use case
-      encrypted file: 5: use case
-      secret: 6: use case</pre>
-
-
-<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
+<h2 id="Disk-Encryption-preparation"><a href="#Disk-Encryption-preparation" class="headerlink" title="Disk Encryption preparation"></a>Disk Encryption preparation</h2><h3 id="format-and-encrypt-virtual-disk"><a href="#format-and-encrypt-virtual-disk" class="headerlink" title="format and encrypt virtual disk"></a>format and encrypt virtual disk</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cryptsetup -<span class="selector-tag">q</span> -y  luksFormat crypted-disk-luks<span class="selector-class">.img</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>info: you will be ask for your given protected given password </p>
+<p>info: you will be asked for passphrase to encrypt&#x2F;decrypt disk </p>
 </blockquote>
-<p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
-<pre class="mermaid" style="background: none">mindmap
-  root((openssl))
-    algorithm
-      aes-256-cbc
-        file
-          encryption
-            protection
-              your password
-          decryption
-            proctection
-              your password</pre>
+<h3 id="open-LUKS-encrypted-virtual-disk"><a href="#open-LUKS-encrypted-virtual-disk" class="headerlink" title="open LUKS encrypted virtual disk"></a>open LUKS encrypted virtual disk</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> cryptsetup luksOpen /<span class="class"><span class="keyword">data</span>/crypted/crypted-disk-luks.img virtualDiskMapper</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: virtualDiskMapper is the pointname under &#x2F;dev&#x2F;mapper&#x2F;virtalDiskMapper</p>
+</blockquote>
+<h2 id="check-LUKS-opened-virual-Disk-on-dev-mapper"><a href="#check-LUKS-opened-virual-Disk-on-dev-mapper" class="headerlink" title="check LUKS opened virual Disk on &#x2F;dev&#x2F;mapper"></a>check LUKS opened virual Disk on &#x2F;dev&#x2F;mapper</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l <span class="regexp">/dev/m</span>apper/virtualDiskMapper</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: you should see size of disk little less than 100MB (it is ok)</p>
+</blockquote>
+<h3 id="format-inside-opened-LUKS-the-virtual-Disk-with-your-prefered-file-system"><a href="#format-inside-opened-LUKS-the-virtual-Disk-with-your-prefered-file-system" class="headerlink" title="format inside opened LUKS the virtual Disk with your prefered file system"></a>format inside opened LUKS the virtual Disk with your prefered file system</h3><p>in this case: ext4</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.ext4 <span class="regexp">/dev/m</span>apper/virtualDiskMapper</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this format has no  effect to encryption, so do it</p>
+</blockquote>
+<h2 id="Mount-LUKS-encrypted-virtual-disk"><a href="#Mount-LUKS-encrypted-virtual-disk" class="headerlink" title="Mount LUKS encrypted virtual disk"></a>Mount LUKS encrypted virtual disk</h2><p>above we opened LUKS enrypted virtual already, in this point you dont need to open, because it is opened with passphrase already.</p>
+<blockquote>
+<p>sudo cryptsetup luksOpen &#x2F;data&#x2F;crypted&#x2F;crypted-disk-luks.img virtualDiskMapper</p>
+</blockquote>
+<h3 id="create-mountpoint-for-LUKS-virtual-disk"><a href="#create-mountpoint-for-LUKS-virtual-disk" class="headerlink" title="create mountpoint for LUKS virtual disk"></a>create mountpoint for LUKS virtual disk</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /mnt/LUKSDISK</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this mointpoint you need to create only one time</p>
+</blockquote>
+<h3 id="mount-LUKS-virtual-disk-to-mointpoint"><a href="#mount-LUKS-virtual-disk-to-mointpoint" class="headerlink" title="mount LUKS virtual disk to mointpoint"></a>mount LUKS virtual disk to mointpoint</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount <span class="regexp">/dev/m</span>apper<span class="regexp">/virtualDiskMapper /m</span>nt/LUKSDISK</span><br></pre></td></tr></table></figure>
 
-
-<p>thanks for reading</p>
-<p>–<br>Aysad Kozanoglu</p>
+<h2 id="closing-LUKS-opened-virtual-disk"><a href="#closing-LUKS-opened-virtual-disk" class="headerlink" title="closing LUKS opened virtual disk"></a>closing LUKS opened virtual disk</h2><p>actually our enrypted disk is mounted on moinpoint.<br>so first detach mountpoint</p>
+<h3 id="detach-moinpoint"><a href="#detach-moinpoint" class="headerlink" title="detach moinpoint"></a>detach moinpoint</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="regexp">/mnt/</span>LUKSDISK</span><br></pre></td></tr></table></figure>
+<h3 id="close-LUKS-virtual-Disk"><a href="#close-LUKS-virtual-Disk" class="headerlink" title="close LUKS virtual Disk"></a>close LUKS virtual Disk</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo cryptsetup luksClose virtualDiskMapper</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this commad will detach dev mapped virtualDiskMapper also</p>
+</blockquote>
 
     </div>
 
@@ -329,25 +354,23 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/aes256/" rel="tag"># aes256</a>
               <a href="/blog/tags/encryption/" rel="tag"># encryption</a>
               <a href="/blog/tags/decryption/" rel="tag"># decryption</a>
-              <a href="/blog/tags/openssl/" rel="tag"># openssl</a>
-              <a href="/blog/tags/files/" rel="tag"># files</a>
+              <a href="/blog/tags/mount/" rel="tag"># mount</a>
+              <a href="/blog/tags/cryptsetup/" rel="tag"># cryptsetup</a>
+              <a href="/blog/tags/LUKS/" rel="tag"># LUKS</a>
+              <a href="/blog/tags/virtual-Disk/" rel="tag"># virtual Disk</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/lvm/raid1/disk/mount/recovery/howto/" rel="prev" title="LVM raid1 recovery: mount disk on another linux system debian buster">
-                  <i class="fa fa-angle-left"></i> LVM raid1 recovery: mount disk on another linux system debian buster
+                <a href="/blog/encrypt/decrypt/aes-256/openssl/howto/" rel="prev" title="openssl aes-256 text encryption / decryption interactive mode">
+                  <i class="fa fa-angle-left"></i> openssl aes-256 text encryption / decryption interactive mode
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/encrypt/decrypt/aes-256/openssl/howto/" rel="next" title="openssl aes-256 text encryption / decryption interactive mode">
-                  openssl aes-256 text encryption / decryption interactive mode <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -416,7 +439,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

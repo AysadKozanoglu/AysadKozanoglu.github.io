@@ -150,16 +150,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -196,6 +196,163 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/blog/cryptsetup/luks/encryption/virtual/disk/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/cryptsetup/luks/encryption/virtual/disk/howto/" class="post-title-link" itemprop="url">cryptsetup LUKS2 Creating encrypted virtual Disk Image and mount it</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-29 21:44:53 / Modified: 22:34:56" itemprop="dateCreated datePublished" datetime="2023-11-29T21:44:53+01:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/" itemprop="url" rel="index"><span itemprop="name">cryptsetup</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/" itemprop="url" rel="index"><span itemprop="name">luks</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/encryption/" itemprop="url" rel="index"><span itemprop="name">encryption</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/encryption/virtual/" itemprop="url" rel="index"><span itemprop="name">virtual</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/cryptsetup/luks/encryption/virtual/disk/" itemprop="url" rel="index"><span itemprop="name">disk</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre class="mermaid" style="background: none">flowchart LR
+   id1[/Create virtual Disk/]-->
+   id2[/LUKS format/]-->
+   id3[/set passphrase/]-->
+   id4[/format with ext4 /]-->
+   id5[/create mount ṕoint/]-->
+   id6[/detach mount /]-->
+   id7[/close LUKS /]</pre>
+
+<h2 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h2><ul>
+<li>creating virtual disk with dd </li>
+<li>format and encrypt virtaul disk with cryptsetup <ul>
+<li>setpassphrase</li>
+</ul>
+</li>
+<li>opening encrypted virtual disk with cryptsetup<ul>
+<li>format virtual disk with ext4 mkfs</li>
+<li>create mountpoint with mkdir</li>
+<li>mount LUKS opened disk to mointpoint</li>
+<li>detach mount</li>
+<li>close LUKS</li>
+</ul>
+</li>
+</ul>
+<h2 id="Creating-virtual-Disk-file"><a href="#Creating-virtual-Disk-file" class="headerlink" title="Creating virtual Disk file"></a>Creating virtual Disk file</h2><p>virtual disk filename:<br>crypted-disk-luks.img</p>
+<p>size:<br>100MB</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=crypted-disk-luks.img  <span class="attribute">bs</span>=100M <span class="attribute">count</span>=0 <span class="attribute">seek</span>=1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: with <em>fdisk -l crypted-disk-luks.img</em> you can check virtual disk size</p>
+</blockquote>
+<h2 id="Disk-Encryption-preparation"><a href="#Disk-Encryption-preparation" class="headerlink" title="Disk Encryption preparation"></a>Disk Encryption preparation</h2><h3 id="format-and-encrypt-virtual-disk"><a href="#format-and-encrypt-virtual-disk" class="headerlink" title="format and encrypt virtual disk"></a>format and encrypt virtual disk</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cryptsetup -<span class="selector-tag">q</span> -y  luksFormat crypted-disk-luks<span class="selector-class">.img</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: you will be asked for passphrase to encrypt&#x2F;decrypt disk </p>
+</blockquote>
+<h3 id="open-LUKS-encrypted-virtual-disk"><a href="#open-LUKS-encrypted-virtual-disk" class="headerlink" title="open LUKS encrypted virtual disk"></a>open LUKS encrypted virtual disk</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> cryptsetup luksOpen /<span class="class"><span class="keyword">data</span>/crypted/crypted-disk-luks.img virtualDiskMapper</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: virtualDiskMapper is the pointname under &#x2F;dev&#x2F;mapper&#x2F;virtalDiskMapper</p>
+</blockquote>
+<h2 id="check-LUKS-opened-virual-Disk-on-dev-mapper"><a href="#check-LUKS-opened-virual-Disk-on-dev-mapper" class="headerlink" title="check LUKS opened virual Disk on &#x2F;dev&#x2F;mapper"></a>check LUKS opened virual Disk on &#x2F;dev&#x2F;mapper</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l <span class="regexp">/dev/m</span>apper/virtualDiskMapper</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: you should see size of disk little less than 100MB (it is ok)</p>
+</blockquote>
+<h3 id="format-inside-opened-LUKS-the-virtual-Disk-with-your-prefered-file-system"><a href="#format-inside-opened-LUKS-the-virtual-Disk-with-your-prefered-file-system" class="headerlink" title="format inside opened LUKS the virtual Disk with your prefered file system"></a>format inside opened LUKS the virtual Disk with your prefered file system</h3><p>in this case: ext4</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.ext4 <span class="regexp">/dev/m</span>apper/virtualDiskMapper</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this format has no  effect to encryption, so do it</p>
+</blockquote>
+<h2 id="Mount-LUKS-encrypted-virtual-disk"><a href="#Mount-LUKS-encrypted-virtual-disk" class="headerlink" title="Mount LUKS encrypted virtual disk"></a>Mount LUKS encrypted virtual disk</h2><p>above we opened LUKS enrypted virtual already, in this point you dont need to open, because it is opened with passphrase already.</p>
+<blockquote>
+<p>sudo cryptsetup luksOpen &#x2F;data&#x2F;crypted&#x2F;crypted-disk-luks.img virtualDiskMapper</p>
+</blockquote>
+<h3 id="create-mountpoint-for-LUKS-virtual-disk"><a href="#create-mountpoint-for-LUKS-virtual-disk" class="headerlink" title="create mountpoint for LUKS virtual disk"></a>create mountpoint for LUKS virtual disk</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /mnt/LUKSDISK</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this mointpoint you need to create only one time</p>
+</blockquote>
+<h3 id="mount-LUKS-virtual-disk-to-mointpoint"><a href="#mount-LUKS-virtual-disk-to-mointpoint" class="headerlink" title="mount LUKS virtual disk to mointpoint"></a>mount LUKS virtual disk to mointpoint</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount <span class="regexp">/dev/m</span>apper<span class="regexp">/virtualDiskMapper /m</span>nt/LUKSDISK</span><br></pre></td></tr></table></figure>
+
+<h2 id="closing-LUKS-opened-virtual-disk"><a href="#closing-LUKS-opened-virtual-disk" class="headerlink" title="closing LUKS opened virtual disk"></a>closing LUKS opened virtual disk</h2><p>actually our enrypted disk is mounted on moinpoint.<br>so first detach mountpoint</p>
+<h3 id="detach-moinpoint"><a href="#detach-moinpoint" class="headerlink" title="detach moinpoint"></a>detach moinpoint</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="regexp">/mnt/</span>LUKSDISK</span><br></pre></td></tr></table></figure>
+<h3 id="close-LUKS-virtual-Disk"><a href="#close-LUKS-virtual-Disk" class="headerlink" title="close LUKS virtual Disk"></a>close LUKS virtual Disk</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo cryptsetup luksClose virtualDiskMapper</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: this commad will detach dev mapped virtualDiskMapper also</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
