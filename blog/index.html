@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 17:35:55" itemprop="dateModified" datetime="2023-11-29T17:35:55+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-29 19:03:59" itemprop="dateModified" datetime="2023-11-29T19:03:59+01:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="/blog/images/aes-256-openssl.jpg"></p>
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">journey</span><br><span class="line">    title openssl aes-256  encryption interactive mode</span><br><span class="line">    section on Console</span><br><span class="line">      openssl : 5: use case</span><br><span class="line">      aes-256-cbc: 5: use case</span><br><span class="line">      enter text: 5: use case</span><br><span class="line">      enter secret: 5: use case</span><br><span class="line">      hash: 5: use case</span><br></pre></td></tr></table></figure>
 <h2 id="openssl-AES-256-interactive-mode-encryption-and-decryption"><a href="#openssl-AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="openssl AES-256 interactive mode encryption and decryption"></a>openssl AES-256 interactive mode encryption and decryption</h2><h2 id="aes-256-encryption-interactive-mode-with-openssl"><a href="#aes-256-encryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 encryption interactive mode with openssl"></a>aes-256 encryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Text to encrypt:&quot;</span>; <span class="built_in">read</span> STRING;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nPassword: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span>; <span class="built_in">echo</span> Encrypted:;</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -e -<span class="built_in">base64</span> -A -a -pbkdf2 -aes-256-cbc -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span>;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Encrypted text:&quot;</span>; <span class="built_in">read</span> STRING; </span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Password: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nDecrypted:&quot;</span>; </span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -d -<span class="built_in">base64</span> -A -aes-256-cbc -a -pbkdf2  -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
@@ -336,9 +336,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-11-28 17:11:08 / Modified: 17:21:02" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
+      <time title="Created: 2023-11-28 17:11:08" itemprop="dateCreated datePublished" datetime="2023-11-28T17:11:08+01:00">2023-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 18:58:54" itemprop="dateModified" datetime="2023-11-29T18:58:54+01:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -368,7 +374,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">journey</span><br><span class="line">    title openssl aes-256 file encryption</span><br><span class="line">    section on Console</span><br><span class="line">      openssl : 3: use case</span><br><span class="line">      aes-256-cbc: 4: use case</span><br><span class="line">      file: 5: use case</span><br><span class="line">      secret: 6: use case</span><br></pre></td></tr></table></figure>
+
+<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: give your password double to protect encryption </p>
 </blockquote>
@@ -441,7 +449,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 17:28:42" itemprop="dateModified" datetime="2023-11-29T17:28:42+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-29 19:25:33" itemprop="dateModified" datetime="2023-11-29T19:25:33+01:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -479,7 +487,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="/blog/images/lvm_raid1.jpg"></p>
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mindmap</span><br><span class="line">  root((LVM))</span><br><span class="line">    raid 1</span><br><span class="line">      2 disks</span><br><span class="line">    VG</span><br><span class="line">      volume group</span><br><span class="line">    LG</span><br><span class="line">      logical group</span><br><span class="line">    mainboard/cpu</span><br><span class="line">      defect</span><br><span class="line">    Restore</span><br><span class="line">      detache one part of disk</span><br><span class="line">      attach to another system</span><br><span class="line">      remove missing part of raid disk</span><br><span class="line">      reneme VG</span><br><span class="line">      load md module</span><br><span class="line">      mount</span><br><span class="line">    Tools</span><br><span class="line">      lvscan</span><br><span class="line">      vgdisplay</span><br><span class="line">      lvdisplay</span><br><span class="line">      vgreduce</span><br><span class="line">      pvdisplay</span><br><span class="line">      vgrename</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="scenario"><a href="#scenario" class="headerlink" title="scenario"></a>scenario</h2><p>in my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.<br>My system was debian buster (10).</p>
 <p>My Mainboard was crashed and i was not able to boot up my system. My OS  was installed on  seperatly 240GB ssd.</p>
 <p>So my soft raid1 with LVM for the 2 disk with 2TB ssd, i was not able to get my data from there.</p>
@@ -573,6 +581,7 @@
   </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
+
 
     </div>
   </footer>
