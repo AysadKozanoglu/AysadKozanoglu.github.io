@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="1234567journey    title openssl aes-256 file encryption    section on Console      openssl : 3: use case      aes-256-cbc: 4: use case      file: 5: use case      secret: 6: use case  AES256 file encr">
+    <meta name="description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AES256 encryption and decryption file(s) with openssl">
 <meta property="og:url" content="https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="1234567journey    title openssl aes-256 file encryption    section on Console      openssl : 3: use case      aes-256-cbc: 4: use case      file: 5: use case      secret: 6: use case  AES256 file encr">
+<meta property="og:description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-28T16:11:08.000Z">
-<meta property="article:modified_time" content="2023-11-29T17:58:54.753Z">
+<meta property="article:modified_time" content="2023-11-29T19:08:35.115Z">
 <meta property="article:author" content="Aysad Kozanoglu">
 <meta property="article:tag" content="aes256">
 <meta property="article:tag" content="encryption">
@@ -250,7 +250,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 18:58:54" itemprop="dateModified" datetime="2023-11-29T18:58:54+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-29 20:08:35" itemprop="dateModified" datetime="2023-11-29T20:08:35+01:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,17 +279,45 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">journey</span><br><span class="line">    title openssl aes-256 file encryption</span><br><span class="line">    section on Console</span><br><span class="line">      openssl : 3: use case</span><br><span class="line">      aes-256-cbc: 4: use case</span><br><span class="line">      file: 5: use case</span><br><span class="line">      secret: 6: use case</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">journey
+    title openssl aes-256 file encryption
+    section on Console
+      openssl : 3: use case
+      aes-256-cbc: 4: use case
+      file: 5: use case
+      secret: 6: use case</pre>
 
 <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: give your password double to protect encryption </p>
 </blockquote>
+<pre class="mermaid" style="background: none">journey
+    title openssl aes-256 file decryption
+    section on Console
+      openssl : 3: use case
+      aes-256-cbc: 4: use case
+      encrypted file: 5: use case
+      secret: 6: use case</pre>
+
+
 <h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: you will be ask for your given protected given password </p>
 </blockquote>
 <p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
+<pre class="mermaid" style="background: none">mindmap
+  root((openssl))
+    algorithm
+      aes-256-cbc
+        file
+          encryption
+            protection
+              your password
+          decryption
+            proctection
+              your password</pre>
+
+
 <p>thanks for reading</p>
 <p>–<br>Aysad Kozanoglu</p>
 

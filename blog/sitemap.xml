@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/</loc>
-    
-    <lastmod>2023-11-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://aysadkozanoglu.github.io/blog/encrypt/decrypt/aes-256/openssl/howto/</loc>
     
     <lastmod>2023-11-29</lastmod>
@@ -21,6 +12,15 @@
   
   <url>
     <loc>https://aysadkozanoglu.github.io/blog/encryption/openssl/aes256/howto/</loc>
+    
+    <lastmod>2023-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/blog/lvm/raid1/disk/mount/recovery/howto/</loc>
     
     <lastmod>2023-11-29</lastmod>
     
