@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 20:08:35" itemprop="dateModified" datetime="2023-11-29T20:08:35+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-30 18:26:47" itemprop="dateModified" datetime="2023-11-30T18:26:47+01:00">2023-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +271,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <pre class="mermaid" style="background: none">journey
+          <pre class="mermaid" style="background: none">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+journey
     title openssl aes-256 file encryption
     section on Console
       openssl : 3: use case
@@ -279,40 +295,29 @@
       file: 5: use case
       secret: 6: use case</pre>
 
-<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: give your password double to protect encryption </p>
-</blockquote>
-<pre class="mermaid" style="background: none">journey
-    title openssl aes-256 file decryption
-    section on Console
-      openssl : 3: use case
-      aes-256-cbc: 4: use case
-      encrypted file: 5: use case
-      secret: 6: use case</pre>
-
-
-<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: you will be ask for your given protected given password </p>
-</blockquote>
-<p>you can also encrypt tar.gz files, so if you have multiple files to encrypt than compress it with zip , bzip or  tar.gz and than you can encrypt it </p>
-<pre class="mermaid" style="background: none">mindmap
-  root((openssl))
-    algorithm
-      aes-256-cbc
-        file
-          encryption
-            protection
-              your password
-          decryption
-            proctection
-              your password</pre>
-
-
-<p>thanks for reading</p>
-<p>–<br>Aysad Kozanoglu</p>
-
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>openssl<ul>
+<li>aes-256 algorithm<ul>
+<li>file <ul>
+<li>encrytion</li>
+<li>decryption</li>
+<li>txt,yaml,tar.gz,bzip, zip</li>
+</ul>
+</li>
+<li>passphrase protected</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/encryption/openssl/aes256/howto/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

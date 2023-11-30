@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 19:50:27" itemprop="dateModified" datetime="2023-11-29T19:50:27+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-30 18:27:01" itemprop="dateModified" datetime="2023-11-30T18:27:01+01:00">2023-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,92 +279,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <pre class="mermaid" style="background: none">flowchart LR
+          <pre class="mermaid" style="background: none">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+flowchart LR
 disk1---|LVM raid1|disk2</pre>
-<h2 id="scenario"><a href="#scenario" class="headerlink" title="scenario"></a>scenario</h2><p>in my showcase, i was using two ssd 2TB disks in LVM in raid1 mode.<br>My system was debian buster (10).</p>
-<p>My Mainboard was crashed and i was not able to boot up my system. My OS  was installed on  seperatly 240GB ssd.</p>
-<p>So my soft raid1 with LVM for the 2 disk with 2TB ssd, i was not able to get my data from there.</p>
-<ul>
-<li>240gb OS # only OS</li>
-<li>2TB LVM Raid1 disk1 # data</li>
-<li>2TB LVM Raid1 disk2 # data</li>
-</ul>
-<p>Here is my solution for recovery data from LVM raid1 from one part of disk from lvm raid1</p>
-<h3 id="remove-disk-from-damaged-hardware"><a href="#remove-disk-from-damaged-hardware" class="headerlink" title="remove disk from  damaged hardware"></a>remove disk from  damaged hardware</h3><p>remove the one part of the ssd disk to connect with usb ssd adapter (sabrent) to another system. in my case i  working with debian buster (10)</p>
-<h3 id="connect-disk-to-another-working-system"><a href="#connect-disk-to-another-working-system" class="headerlink" title="connect disk to another working system"></a>connect disk to another working system</h3><p>connect the disk with usb ssd adapter to your another working machine. in my case debian buster (10)</p>
-<h2 id="get-info-from-connected-ssd-with-usb"><a href="#get-info-from-connected-ssd-with-usb" class="headerlink" title="get info from connected ssd with usb"></a>get info from connected ssd with usb</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">fdisk -l</span></span><br><span class="line"><span class="attribute">pvdisplay</span></span><br><span class="line"><span class="attribute">vgdisplay</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: all this commands gives you  output and you would  get  information about disk,  lovume group, partiton volume, VG name, PV name</p>
-</blockquote>
-<p>pvdisplay and vgdisplay output should give you in the first line a WARNING:</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">WARNING: </span>Couldn&#x27;t find device with uuid kGfIXi-i1m2-7pqw-5Aqb-mH2U-Q20f-YMrg1M.</span><br><span class="line"><span class="symbol">WARNING: </span>VG VG01_STORAGE_RAID1 is missing PV kGfIXi-i1m2-7pqw-5Aqb-mH2U-Q20f-YMrg1M (last written to /dev/sdc).</span><br><span class="line"></span><br><span class="line"><span class="code">  --- Physical volume ---</span></span><br><span class="line"><span class="code">  PV Name               [unknown]</span></span><br><span class="line"><span class="code">  VG Name               VG01_STORAGE_RAID1</span></span><br><span class="line"><span class="code">  PV Size               &lt;1,82 TiB / not usable &lt;1,09 MiB</span></span><br><span class="line"><span class="code">  Allocatable           yes (but full)</span></span><br><span class="line"><span class="code">  PE Size               4,00 MiB</span></span><br><span class="line"><span class="code">  Total PE              476932</span></span><br><span class="line"><span class="code">  Free PE               0</span></span><br><span class="line"><span class="code">  Allocated PE          476932</span></span><br><span class="line"><span class="code">  PV UUID               kGfIXi-i1m2-7pqw-5Aqb-mH2U-Q20f-YMrg1M</span></span><br><span class="line"></span><br><span class="line"><span class="code">  --- Physical volume ---</span></span><br><span class="line"><span class="code">  PV Name               /dev/sdc</span></span><br><span class="line"><span class="code">  VG Name               VG01_STORAGE_RAID1</span></span><br><span class="line"><span class="code">  PV Size               &lt;1,82 TiB / not usable &lt;1,09 MiB</span></span><br><span class="line"><span class="code">  Allocatable           yes (but full)</span></span><br><span class="line"><span class="code">  PE Size               4,00 MiB</span></span><br><span class="line"><span class="code">  Total PE              476932</span></span><br><span class="line"><span class="code">  Free PE               0</span></span><br><span class="line"><span class="code">  Allocated PE          476932</span></span><br><span class="line"><span class="code">  PV UUID               O0cX9Z-3YD8-dkFX-qPCA-i6RS-fAGe-Nbplt6</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: the is valid and it is ok because the partial disk (second disk) is not foundable </p>
-</blockquote>
-<h2 id="mount-lvm-raid1-partial-disk"><a href="#mount-lvm-raid1-partial-disk" class="headerlink" title="mount lvm raid1 partial disk"></a>mount lvm raid1 partial disk</h2><p>first, scan all connected disk for LVM with lvm tool lvscan</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">lvscan</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>output:</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ACTIVE</span> <span class="string">&#x27;/dev/VG01_STORAGE_RAID1/LV01_STORAGE_RAID1&#x27;</span> [&lt;<span class="number">1</span>,<span class="number">82</span> TiB] inherit</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: in my scenario, i  named my volume group  <em>VG01_STORAGE_RAID1&#x2F;LV01_STORAGE_RAID1</em> . this part of disk is not mountable, until i removed the missing part disk (second disk &gt; raid1) </p>
-</blockquote>
-<h2 id="removing-missing-partial-disk-from-LVM-group"><a href="#removing-missing-partial-disk-from-LVM-group" class="headerlink" title="removing missing partial disk from LVM group"></a>removing missing partial disk from LVM group</h2><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">vgreduce</span> <span class="literal">--</span><span class="comment">removemissing</span> <span class="literal">--</span><span class="comment">force VG01_STORAGE_RAID1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>output:</p>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Couldn<span class="comment">&#x27;t find device with uuid kGfIXi-i1m2-7pqw-5Aqb-mH2U-Q20f-YMrg1M.</span></span><br><span class="line">Removing <span class="keyword">partial</span> LV LV01_STORAGE_RAID1.</span><br><span class="line">Logical volume <span class="string">&quot;LV01_STORAGE_RAID1&quot;</span> successfully removed</span><br><span class="line">Wrote out consistent volume <span class="keyword">group</span> VG01_STORAGE_RAID1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: failed&#x2F;bad disk is now successfully removed from LVM group</p>
-</blockquote>
-<h2 id="get-UUID-from-partial-VG-disk"><a href="#get-UUID-from-partial-VG-disk" class="headerlink" title="get UUID from partial VG disk"></a>get UUID from partial VG disk</h2><p>to rename VG volume group we have to get VG UUID first.</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vgdisplay</span></span><br></pre></td></tr></table></figure>
-<p>output:</p>
-<figure class="highlight irpf90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">--- Volume group ---</span><br><span class="line">VG <span class="keyword">Name</span>               VG01_STORAGE_RAID1</span><br><span class="line">System ID</span><br><span class="line"><span class="keyword">Format</span>                lvm2</span><br><span class="line">Metadata Areas        <span class="number">1</span></span><br><span class="line">Metadata <span class="keyword">Sequence</span> No  <span class="number">3</span></span><br><span class="line">VG <span class="keyword">Access</span>             read/<span class="built_in">write</span></span><br><span class="line">VG <span class="keyword">Status</span>             resizable</span><br><span class="line"><span class="built_in">MAX</span> LV                <span class="number">0</span></span><br><span class="line">Cur LV                <span class="number">1</span></span><br><span class="line">Open LV               <span class="number">0</span></span><br><span class="line"><span class="built_in">Max</span> PV                <span class="number">0</span></span><br><span class="line">Cur PV                <span class="number">2</span></span><br><span class="line">Act PV                <span class="number">1</span></span><br><span class="line">VG <span class="built_in">Size</span>               &lt;<span class="number">3</span>,<span class="number">64</span> TiB</span><br><span class="line">PE <span class="built_in">Size</span>               <span class="number">4</span>,<span class="number">00</span> MiB</span><br><span class="line">Total PE              <span class="number">953864</span></span><br><span class="line">Alloc PE / <span class="built_in">Size</span>       <span class="number">953864</span> / &lt;<span class="number">3</span>,<span class="number">64</span> TiB</span><br><span class="line"><span class="keyword">Free</span>  PE / <span class="built_in">Size</span>       <span class="number">0</span> / <span class="number">0</span></span><br><span class="line">VG UUID               WNR45t-kuju-bSZq-iF2f-LJoA-ZCdb-G2uDkl</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: VG UUID is WNR45t-kuju-bSZq-iF2f-LJoA-ZCdb-G2uDkl</p>
-</blockquote>
-<h2 id="rename-VG-volume-group-name"><a href="#rename-VG-volume-group-name" class="headerlink" title="rename VG volume group name"></a>rename VG volume group name</h2><p>to mount as single disk we have to rename the LVM VG name first</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#vgrename &lt;UUID&gt;  NEW_NAME</span></span><br><span class="line">vgrename WNR45t-kuju-bSZq-iF2f-LJoA-ZCdb-G2uDkl NEW_VG01_STORAGE_RAID1</span><br><span class="line">vgchange -ay</span><br><span class="line">lvscan</span><br><span class="line"></span><br><span class="line">$<span class="meta">#: ACTIVE <span class="string">&#x27;/dev/NEW_VG01_STORAGE_RAID1/LV01_STORAGE_RAID1&#x27;</span> [&lt;1,82 TiB] inherit</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>info: now VG name is renamed to NEW_VG01_STORAGE_RAID1	</p>
-</blockquote>
-<h2 id="mount-LVM-to-mountpoint"><a href="#mount-LVM-to-mountpoint" class="headerlink" title="mount LVM to mountpoint"></a>mount LVM to mountpoint</h2><h3 id="enable-dm-mod-in-kernel"><a href="#enable-dm-mod-in-kernel" class="headerlink" title="enable dm-mod in kernel"></a>enable dm-mod in kernel</h3><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe dm-<span class="keyword">mod</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="create-mountpoint"><a href="#create-mountpoint" class="headerlink" title="create mountpoint"></a>create mountpoint</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/LVM-RECOVED-DISK1</span><br></pre></td></tr></table></figure>
-
-<h3 id="mount-LVM-DISK-VG"><a href="#mount-LVM-DISK-VG" class="headerlink" title="mount LVM DISK VG"></a>mount LVM DISK VG</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount <span class="regexp">/dev/</span>NEW_VG01_STORAGE_RAID1<span class="regexp">/LV01_STORAGE_RAID1 /m</span>nt/LVM-RECOVED-DISK1</span><br></pre></td></tr></table></figure>
-
-<h2 id="recover-your-data"><a href="#recover-your-data" class="headerlink" title="recover your data"></a>recover your data</h2><p>now you are able to force your data intire <em>&#x2F;mnt&#x2F;LVM-RECOVED-DISK1</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/LVM-RECOVED-DISK1</span><br><span class="line"><span class="built_in">ls</span> -la</span><br></pre></td></tr></table></figure>
-
-<pre class="mermaid" style="background: none">mindmap
-  root((LVM))
-    raid 1
-      2 disks
-    VG
-      volume group
-    LG
-      logical group
-    mainboard/cpu
-      defect
-    Restore
-      detache one part of disk
-      attach to another system
-      remove missing part of raid disk
-      reneme VG
-      load md module
-      mount
-    Tools
-      lvscan
-      vgdisplay
-      lvdisplay
-      vgreduce
-      pvdisplay
-      vgrename</pre>
-
-<p>thanks for reading , i hope i helped you</p>
-<p>–<br>Aysad Kozanoglu</p>
-
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>LVM<ul>
+<li>Raid1</li>
+<li>remove missing partial disk of radid1</li>
+<li>rename Volu group VG</li>
+<li>mount</li>
+<li>recover
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/lvm/raid1/disk/mount/recovery/howto/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
