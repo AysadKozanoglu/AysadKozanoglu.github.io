@@ -1,0 +1,5 @@
+
+rsync -avP --delete public/* /data/gits/aysadKozanoglu.github.io/
+
+
+

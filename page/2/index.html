@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 20:16:54" itemprop="dateModified" datetime="2023-11-29T20:16:54+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-30 18:26:32" itemprop="dateModified" datetime="2023-11-30T18:26:32+01:00">2023-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,7 +275,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <pre class="mermaid" style="background: none">journey
+          <pre class="mermaid" style="background: none">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+journey
     title openssl aes-256  encryption interactive mode
     section on Console
       openssl : 5: use case
@@ -283,22 +298,28 @@
       enter text: 5: use case
       enter secret: 5: use case
       hash: 5: use case</pre>
-<h2 id="openssl-AES-256-interactive-mode-encryption-and-decryption"><a href="#openssl-AES-256-interactive-mode-encryption-and-decryption" class="headerlink" title="openssl AES-256 interactive mode encryption and decryption"></a>openssl AES-256 interactive mode encryption and decryption</h2><h2 id="aes-256-encryption-interactive-mode-with-openssl"><a href="#aes-256-encryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 encryption interactive mode with openssl"></a>aes-256 encryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Text to encrypt:&quot;</span>; <span class="built_in">read</span> STRING;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nPassword: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span>; <span class="built_in">echo</span> Encrypted:;</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -e -<span class="built_in">base64</span> -A -a -pbkdf2 -aes-256-cbc -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span>;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="aes-256-decryption-interactive-mode-with-openssl"><a href="#aes-256-decryption-interactive-mode-with-openssl" class="headerlink" title="aes-256 decryption interactive mode with openssl"></a>aes-256 decryption interactive mode with openssl</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> -v PASS</span><br><span class="line"><span class="built_in">unset</span> -v STRING</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Encrypted Hash:&quot;</span>; <span class="built_in">read</span> STRING; </span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n Password: &quot;</span>; <span class="built_in">read</span> -s PASS;</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\nDecrypted:&quot;</span>; </span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$STRING</span>&quot;</span> | openssl enc -d -<span class="built_in">base64</span> -A -aes-256-cbc -a -pbkdf2  -pass pass:<span class="string">&quot;<span class="variable">$PASS</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n\n&quot;</span></span><br></pre></td></tr></table></figure>
-<p>demo:</p>
-<script type="text/javascript" src="https://asciinema.org/a/GyrKDC6Ep3rYhEhCTXu0F57UE.js" id="asciicast-GyrKDC6Ep3rYhEhCTXu0F57UE" async></script>
-
-<pre class="mermaid" style="background: none">mindmap
-  root(console)
-    enter string
-      enter password
-        openssl
-          aes-256 encryption
-            output aes-256 hash
-          aes-256 decryption
-             output plain text string</pre>
-
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>console interactive mode<ul>
+<li>openssl<ul>
+<li>aes-256 algorithm</li>
+<li>encryption</li>
+<li>decryption</li>
+<li>aes-256 hash</li>
+<li>passphrase protected</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/encrypt/decrypt/aes-256/openssl/howto/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

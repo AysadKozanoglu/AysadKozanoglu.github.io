@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
+    <meta name="description" content="%%{   init: {     &#39;theme&#39;: &#39;base&#39;,     &#39;themeVariables&#39;: {       &#39;primaryColor&#39;: &#39;#3ed72b&#39;,       &#39;primaryTextColor&#39;: &#39;#000&#39;,       &#39;primaryBorderColor&#39;: &#39;#000&#39;,       &#39;lineColor&#39;: &#39;#fff&#39;,       &#39;sec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AES256 encryption and decryption file(s) with openssl">
 <meta property="og:url" content="https://aysadkozanoglu.github.io/encryption/openssl/aes256/howto/index.html">
 <meta property="og:site_name" content="Aysad Kozanoglu">
-<meta property="og:description" content="journey     title openssl aes-256 file encryption     section on Console       openssl : 3: use case       aes-256-cbc: 4: use case       file: 5: use case       secret: 6: use case  AES256 file encry">
+<meta property="og:description" content="%%{   init: {     &#39;theme&#39;: &#39;base&#39;,     &#39;themeVariables&#39;: {       &#39;primaryColor&#39;: &#39;#3ed72b&#39;,       &#39;primaryTextColor&#39;: &#39;#000&#39;,       &#39;primaryBorderColor&#39;: &#39;#000&#39;,       &#39;lineColor&#39;: &#39;#fff&#39;,       &#39;sec">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-28T16:11:08.000Z">
-<meta property="article:modified_time" content="2023-11-29T19:08:35.115Z">
+<meta property="article:modified_time" content="2023-11-30T17:26:47.550Z">
 <meta property="article:author" content="Aysad Kozanoglu">
 <meta property="article:tag" content="aes256">
 <meta property="article:tag" content="encryption">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AES256-file-encryption"><span class="nav-number">1.</span> <span class="nav-text">AES256 file encryption</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encrypt-file-secret-txt-with-openssl"><span class="nav-number">1.1.</span> <span class="nav-text">encrypt file secret.txt with openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decrypt-file-secret-txt-enc-openssl"><span class="nav-number">1.2.</span> <span class="nav-text">decrypt file secret.txt.enc openssl</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES256-file-encryption"><span class="nav-number">2.</span> <span class="nav-text">AES256 file encryption</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#encrypt-file-secret-txt-with-openssl"><span class="nav-number">2.1.</span> <span class="nav-text">encrypt file secret.txt with openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decrypt-file-secret-txt-enc-openssl"><span class="nav-number">2.2.</span> <span class="nav-text">decrypt file secret.txt.enc openssl</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +250,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-29 20:08:35" itemprop="dateModified" datetime="2023-11-29T20:08:35+01:00">2023-11-29</time>
+      <time title="Modified: 2023-11-30 18:26:47" itemprop="dateModified" datetime="2023-11-30T18:26:47+01:00">2023-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,7 +279,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">journey
+    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+journey
     title openssl aes-256 file encryption
     section on Console
       openssl : 3: use case
@@ -287,6 +303,22 @@
       file: 5: use case
       secret: 6: use case</pre>
 
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>openssl<ul>
+<li>aes-256 algorithm<ul>
+<li>file <ul>
+<li>encrytion</li>
+<li>decryption</li>
+<li>txt,yaml,tar.gz,bzip, zip</li>
+</ul>
+</li>
+<li>passphrase protected</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
 <h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: give your password double to protect encryption </p>
