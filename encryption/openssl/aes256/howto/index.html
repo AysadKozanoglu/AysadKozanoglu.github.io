@@ -319,7 +319,7 @@ journey
 </li>
 </ul>
 <span id="more"></span>
-<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -<span class="selector-tag">a</span> -salt -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span> -out secrets<span class="selector-class">.txt</span>.enc</span><br></pre></td></tr></table></figure>
+<h2 id="AES256-file-encryption"><a href="#AES256-file-encryption" class="headerlink" title="AES256 file encryption"></a>AES256 file encryption</h2><h3 id="encrypt-file-secret-txt-with-openssl"><a href="#encrypt-file-secret-txt-with-openssl" class="headerlink" title="encrypt file secret.txt with openssl"></a>encrypt file secret.txt with openssl</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl aes-256-cbc -a -salt -pbkdf2 -in secrets.txt -out secrets.txt.enc</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: give your password double to protect encryption </p>
 </blockquote>
@@ -332,7 +332,7 @@ journey
       secret: 6: use case</pre>
 
 
-<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-<span class="number">256</span>-cbc -d -<span class="selector-tag">a</span> -pbkdf2 -<span class="keyword">in</span> secrets<span class="selector-class">.txt</span><span class="selector-class">.enc</span> -out secrets.txt</span><br></pre></td></tr></table></figure>
+<h3 id="decrypt-file-secret-txt-enc-openssl"><a href="#decrypt-file-secret-txt-enc-openssl" class="headerlink" title="decrypt file secret.txt.enc openssl"></a>decrypt file secret.txt.enc openssl</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl aes-256-cbc -d -a -pbkdf2 -in secrets.txt.enc -out secrets.txt</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>info: you will be ask for your given protected given password </p>
 </blockquote>
