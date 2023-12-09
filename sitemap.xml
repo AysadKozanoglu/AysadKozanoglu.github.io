@@ -153,6 +153,41 @@
   </url>
   
   <url>
+    <loc>https://aysadkozanoglu.github.io/tags/vagrant/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/virtualbox/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/versions/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/provider/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/support/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://aysadkozanoglu.github.io/tags/cryptsetup/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -202,41 +237,6 @@
   </url>
   
   <url>
-    <loc>https://aysadkozanoglu.github.io/tags/vagrant/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/tags/virtualbox/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/tags/versions/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/tags/provider/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/tags/support/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://aysadkozanoglu.github.io/tags/create/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -274,6 +274,13 @@
   </url>
   
   <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://aysadkozanoglu.github.io/categories/encryption/openssl/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -282,6 +289,13 @@
   
   <url>
     <loc>https://aysadkozanoglu.github.io/categories/encrypt/decrypt/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -302,7 +316,21 @@
   </url>
   
   <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://aysadkozanoglu.github.io/categories/encrypt/decrypt/aes-256/openssl/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/support/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -373,34 +401,6 @@
   
   <url>
     <loc>https://aysadkozanoglu.github.io/categories/cryptsetup/luks/encryption/virtual/disk/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/categories/vagrant/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/</loc>
-    <lastmod>2023-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/support/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
