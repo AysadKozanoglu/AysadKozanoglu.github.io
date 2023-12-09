@@ -1,3 +1,4 @@
+https://aysadkozanoglu.github.io/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/
 https://aysadkozanoglu.github.io/donation/index.html
 https://aysadkozanoglu.github.io/vagrant/virtualbox/provider/support/index/
 https://aysadkozanoglu.github.io/cryptsetup/luks/encryption/virtual/disk/howto/
@@ -28,6 +29,9 @@ https://aysadkozanoglu.github.io/tags/virtualbox/
 https://aysadkozanoglu.github.io/tags/versions/
 https://aysadkozanoglu.github.io/tags/provider/
 https://aysadkozanoglu.github.io/tags/support/
+https://aysadkozanoglu.github.io/tags/create/
+https://aysadkozanoglu.github.io/tags/box/
+https://aysadkozanoglu.github.io/tags/machine/
 https://aysadkozanoglu.github.io/categories/encryption/
 https://aysadkozanoglu.github.io/categories/encrypt/
 https://aysadkozanoglu.github.io/categories/encryption/openssl/
@@ -49,3 +53,6 @@ https://aysadkozanoglu.github.io/categories/vagrant/
 https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/
 https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/
 https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/support/
+https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/
+https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/create/
+https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/create/vagrantfile/
