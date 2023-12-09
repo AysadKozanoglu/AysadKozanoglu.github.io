@@ -4,6 +4,49 @@
   
     
     <entry>
+      <title>Vagrant automation: create two machines  with debian bulleye image with virtualbox provider</title>
+      <link href="/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/"/>
+      <url>/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/</url>
+      
+        <content type="html"><![CDATA[<pre class="mermaid" style="background: none">%%{  init: {    'theme': 'base',    'themeVariables': {      'primaryColor': '#3ed72b',      'primaryTextColor': '#000',      'primaryBorderColor': '#000',      'lineColor': '#fff',      'secondaryColor': '#e6f01b',      'tertiaryColor': '#fff'    }  }}%%flowchart LR   id1[/vagrant/]   id2[/Vagrantfile /]   id3[ define machine image Debian]   id4[/provision/]   id5[/virtualbox provider/]   id6[/startup/]   id7[/shutdown /]   id8[/destroy/]   id2-->id3   id3-->id1   id1-->id5   id5-->id4   id4-->id6   id4-->id7   id7-->id8</pre><p>Overview:</p><ul><li>install vagrant and virtualbox</li><li>create new folder and Vagrantfile to provisining machines</li><li>vagrant provisioning machines <ul><li>start</li><li>list</li><li>shutdown</li><li>destroy</li></ul></li></ul><span id="more"></span><h2 id="creating-new-folder-and-Vagrantfile"><a href="#creating-new-folder-and-Vagrantfile" class="headerlink" title="creating new folder and Vagrantfile"></a>creating new folder and Vagrantfile</h2><p>create new folder for your project </p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir project-vagrantboxes</span><br></pre></td></tr></table></figure><h3 id="create-within-your-new-projectfolder-new-file-Vagrantfile"><a href="#create-within-your-new-projectfolder-new-file-Vagrantfile" class="headerlink" title="create within your new projectfolder new file Vagrantfile"></a>create within your new projectfolder new file Vagrantfile</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd project-vagrantboxes</span><br><span class="line">touch Vagrantfile</span><br></pre></td></tr></table></figure><p>now open the new file Vagrantfile with your prefered console editor like vim, nano what else, i use vim</p><p>Vagrantfile config file to provision two machines with debian bullseye image</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># vim Vagrantfile</span><br><span class="line"></span><br><span class="line">Vagrant.configure(&quot;2&quot;) do |config|</span><br><span class="line">config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;, disabled: true</span><br><span class="line">config.vm.synced_folder &quot;shared/&quot;, &quot;/home/vagrant/shared&quot;, create: true</span><br><span class="line">config.vm.provision &quot;shell&quot;, inline: &quot;echo machines don; ip a&quot;</span><br><span class="line">config.vm.box = &quot;debian/bullseye64&quot;</span><br><span class="line"></span><br><span class="line">config.vm.define &quot;m01&quot; do |m01|</span><br><span class="line">m01.vm.hostname = &quot;m01&quot;</span><br><span class="line">m01.vm.network &quot;private_network&quot;, ip: &quot;192.168.60.101&quot;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config.vm.define &quot;m02&quot;, primary: true do |m02|</span><br><span class="line">m02.vm.hostname = &quot;m02&quot;</span><br><span class="line">m02.vm.network &quot;private_network&quot;, ip: &quot;192.168.60.102&quot;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure><blockquote><p>info: validate your Vagrantfile with:  <em>vagrant validate</em></p></blockquote><p>provisioning and startin your machines </p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure><h3 id="list-your-running-machines-with-virtualbox-provider"><a href="#list-your-running-machines-with-virtualbox-provider" class="headerlink" title="list your running machines with virtualbox provider"></a>list your running machines with virtualbox provider</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">VBoxManage list runningvms</span><br></pre></td></tr></table></figure><p>smilar output:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BoxManage list runningvms</span><br><span class="line">&quot;vagrant_m01_1702138997583_2142&quot; &#123;6924c7f1-531a-4371-b891-5c1476f00829&#125;</span><br><span class="line">&quot;vagrant_m02_1702139034175_69860&quot; &#123;95c67b3f-d0ec-4ea9-8584-00d2d370feab&#125;</span><br></pre></td></tr></table></figure><h3 id="check-status-of-machines"><a href="#check-status-of-machines" class="headerlink" title="check status of machines"></a>check status of machines</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vagrant status m01</span><br><span class="line">vagrant status m02</span><br><span class="line"></span><br><span class="line"># // or automated</span><br><span class="line">for node in m01 m02; do vagrang status  $node;done</span><br></pre></td></tr></table></figure><h3 id="now-enjoy-your-machines"><a href="#now-enjoy-your-machines" class="headerlink" title="now enjoy your machines"></a>now enjoy your machines</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vagrant ssh m01   # or m02</span><br></pre></td></tr></table></figure><h3 id="shutdown-your-machines"><a href="#shutdown-your-machines" class="headerlink" title="shutdown your machines"></a>shutdown your machines</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vagrant halt m01</span><br><span class="line">vagrant halt m02</span><br><span class="line"></span><br><span class="line"># // or automated</span><br><span class="line">for node in m01 m02; do vagrant halt $node;done</span><br></pre></td></tr></table></figure><h3 id="destroy-machines"><a href="#destroy-machines" class="headerlink" title="destroy machines"></a>destroy machines</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vagrant destroy m01</span><br><span class="line">vagrant destory m02</span><br><span class="line"></span><br><span class="line"># // or automated</span><br><span class="line">for node in m01 m02; do vagrant destroy  $node;done</span><br></pre></td></tr></table></figure><p>demo</p><script type="text/javascript" src="https://asciinema.org/a/56hDACr6E45QkxZVyB604kXI3.js" id="asciicast-56hDACr6E45QkxZVyB604kXI3" async></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> vagrant </category>
+          
+          <category> virtualbox </category>
+          
+          <category> provider </category>
+          
+          <category> provision </category>
+          
+          <category> create </category>
+          
+          <category> vagrantfile </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vagrant </tag>
+            
+            <tag> virtualbox </tag>
+            
+            <tag> create </tag>
+            
+            <tag> box </tag>
+            
+            <tag> machine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Versions of Virtualbox  that vagrant virtualbox  provider supports</title>
       <link href="/vagrant/virtualbox/provider/support/index/"/>
       <url>/vagrant/virtualbox/provider/support/index/</url>

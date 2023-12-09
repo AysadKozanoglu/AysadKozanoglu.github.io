@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://aysadkozanoglu.github.io/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/</loc>
+    
+    <lastmod>2023-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://aysadkozanoglu.github.io/donation/index.html</loc>
     
     <lastmod>2023-12-09</lastmod>
@@ -227,6 +236,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/create/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/box/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/tags/machine/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -371,6 +401,27 @@
   
   <url>
     <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/support/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/create/</loc>
+    <lastmod>2023-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://aysadkozanoglu.github.io/categories/vagrant/virtualbox/provider/provision/create/vagrantfile/</loc>
     <lastmod>2023-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

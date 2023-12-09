@@ -150,16 +150,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -196,6 +196,157 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aysad Kozanoglu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/" class="post-title-link" itemprop="url">Vagrant automation: create two machines  with debian bulleye image with virtualbox provider</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-12-09 16:58:14 / Modified: 17:48:59" itemprop="dateCreated datePublished" datetime="2023-12-09T16:58:14+01:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/" itemprop="url" rel="index"><span itemprop="name">vagrant</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/virtualbox/" itemprop="url" rel="index"><span itemprop="name">virtualbox</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/virtualbox/provider/" itemprop="url" rel="index"><span itemprop="name">provider</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/virtualbox/provider/provision/" itemprop="url" rel="index"><span itemprop="name">provision</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/virtualbox/provider/provision/create/" itemprop="url" rel="index"><span itemprop="name">create</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/vagrant/virtualbox/provider/provision/create/vagrantfile/" itemprop="url" rel="index"><span itemprop="name">vagrantfile</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre class="mermaid" style="background: none">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+flowchart LR
+   id1[/vagrant/]
+   id2[/Vagrantfile /]
+   id3[ define machine image Debian]
+   id4[/provision/]
+   id5[/virtualbox provider/]
+   id6[/startup/]
+   id7[/shutdown /]
+   id8[/destroy/]
+   id2-->id3
+   id3-->id1
+   id1-->id5
+   id5-->id4
+   id4-->id6
+   id4-->id7
+   id7-->id8</pre>
+
+
+
+<p>Overview:</p>
+<ul>
+<li>install vagrant and virtualbox</li>
+<li>create new folder and Vagrantfile to provisining machines</li>
+<li>vagrant provisioning machines <ul>
+<li>start</li>
+<li>list</li>
+<li>shutdown</li>
+<li>destroy</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -764,138 +915,9 @@ journey
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/lvm/raid1/disk/mount/recovery/howto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aysad Kozanoglu">
-      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Aysad Kozanoglu">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/lvm/raid1/disk/mount/recovery/howto/" class="post-title-link" itemprop="url">LVM raid1 recovery: mount disk on another linux system debian buster</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-28 15:30:13" itemprop="dateCreated datePublished" datetime="2023-11-28T15:30:13+01:00">2023-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-30 18:27:01" itemprop="dateModified" datetime="2023-11-30T18:27:01+01:00">2023-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/lvm/" itemprop="url" rel="index"><span itemprop="name">lvm</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/lvm/raid1/" itemprop="url" rel="index"><span itemprop="name">raid1</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/lvm/raid1/disk/" itemprop="url" rel="index"><span itemprop="name">disk</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/lvm/raid1/disk/mount/" itemprop="url" rel="index"><span itemprop="name">mount</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/lvm/raid1/disk/mount/recovery/" itemprop="url" rel="index"><span itemprop="name">recovery</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <pre class="mermaid" style="background: none">%%{
-  init: {
-    'theme': 'base',
-    'themeVariables': {
-      'primaryColor': '#3ed72b',
-      'primaryTextColor': '#000',
-      'primaryBorderColor': '#000',
-      'lineColor': '#fff',
-      'secondaryColor': '#e6f01b',
-      'tertiaryColor': '#fff'
-    }
-  }
-}%%
-
-
-flowchart LR
-disk1---|LVM raid1|disk2</pre>
-
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>LVM<ul>
-<li>Raid1</li>
-<li>remove missing partial disk of radid1</li>
-<li>rename Volu group VG</li>
-<li>mount</li>
-<li>recover
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/lvm/raid1/disk/mount/recovery/howto/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 </div>
   </main>
