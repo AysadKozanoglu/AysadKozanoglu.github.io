@@ -1,4 +1,5 @@
 # AysadKozanoglu.github.io
 Aysad Kozanoglu Linux Server Administrations
 
-(https://aysad.cloudns.cc)
+this repo is for my blog 
+https://aysad.cloudns.cc
