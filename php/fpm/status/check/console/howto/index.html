@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=oswald:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<style>
+body.iframe .powered {
+display: none;
+}
+</style>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aysadkozanoglu.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="%%{   init: {     &#39;theme&#39;: &#39;base&#39;,     &#39;themeVariables&#39;: {       &#39;primaryColor&#39;: &#39;#3ed72b&#39;,       &#39;primaryTextColor&#39;: &#39;#000&#39;,       &#39;primaryBorderColor&#39;: &#39;#000&#39;,       &#39;lineColor&#39;: &#39;#fff&#39;,       &#39;seco">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php-fpm socket status check console">
+<meta property="og:url" content="https://aysadkozanoglu.github.io/php/fpm/status/check/console/howto/index.html">
+<meta property="og:site_name" content="Ayşad Kozanoğlu">
+<meta property="og:description" content="%%{   init: {     &#39;theme&#39;: &#39;base&#39;,     &#39;themeVariables&#39;: {       &#39;primaryColor&#39;: &#39;#3ed72b&#39;,       &#39;primaryTextColor&#39;: &#39;#000&#39;,       &#39;primaryBorderColor&#39;: &#39;#000&#39;,       &#39;lineColor&#39;: &#39;#fff&#39;,       &#39;seco">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-14T00:10:36.000Z">
+<meta property="article:modified_time" content="2023-12-14T00:25:19.952Z">
+<meta property="article:author" content="Ayşad Kozanoğlu">
+<meta property="article:tag" content="console">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="fpm">
+<meta property="article:tag" content="status">
+<meta property="article:tag" content="check">
+<meta property="article:tag" content="socket">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://aysadkozanoglu.github.io/php/fpm/status/check/console/howto/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://aysadkozanoglu.github.io/php/fpm/status/check/console/howto/","path":"php/fpm/status/check/console/howto/","title":"php-fpm socket status check console"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php-fpm socket status check console | Ayşad Kozanoğlu</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ayşad Kozanoğlu</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linux Server System <br>operator / administrator</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li><li class="menu-item menu-item-donation"><a href="/donation/" rel="section"><i class="fa fa-heart fa-fw"></i>donation</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-needed-packages"><span class="nav-number">1.1.</span> <span class="nav-text">install needed packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-list-of-current-running-php-sockets"><span class="nav-number">1.2.</span> <span class="nav-text">get list of current running php sockets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-status-of-active-pool-worker-with-metrics"><span class="nav-number">1.3.</span> <span class="nav-text">Get status of active pool worker with metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-in-my-case-on-my-server"><span class="nav-number">1.4.</span> <span class="nav-text">output in my case on my server</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ayşad Kozanoğlu</p>
+  <div class="site-description" itemprop="description">LInux System Operator sysOp / System Administrator sysAd</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AysadKozanoglu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AysadKozanoglu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@aysadx" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@aysadx" rel="noopener me" target="_blank">Medium</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gist.github.com/AysadKozanoglu" title="Gists → https:&#x2F;&#x2F;gist.github.com&#x2F;AysadKozanoglu" rel="noopener me" target="_blank">Gists</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://hub.docker.com/u/aysadk" title="DockerHub → https:&#x2F;&#x2F;hub.docker.com&#x2F;u&#x2F;aysadk" rel="noopener me" target="_blank">DockerHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://forge.puppet.com/aysadk" title="puppetlab → https:&#x2F;&#x2F;forge.puppet.com&#x2F;aysadk" rel="noopener me" target="_blank">puppetlab</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.commandlinefu.com/commands/by/aysadk" title="cliFoo → https:&#x2F;&#x2F;www.commandlinefu.com&#x2F;commands&#x2F;by&#x2F;aysadk" rel="noopener me" target="_blank">cliFoo</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://aysadkozanoglu.github.io/php/fpm/status/check/console/howto/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ayşad Kozanoğlu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ayşad Kozanoğlu">
+      <meta itemprop="description" content="LInux System Operator sysOp / System Administrator sysAd">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="php-fpm socket status check console | Ayşad Kozanoğlu">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php-fpm socket status check console
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-12-14 01:10:36 / Modified: 01:25:19" itemprop="dateCreated datePublished" datetime="2023-12-14T01:10:36+01:00">2023-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/fpm/" itemprop="url" rel="index"><span itemprop="name">fpm</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/fpm/status/" itemprop="url" rel="index"><span itemprop="name">status</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/fpm/status/check/" itemprop="url" rel="index"><span itemprop="name">check</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/fpm/status/check/console/" itemprop="url" rel="index"><span itemprop="name">console</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><pre class="mermaid" style="background: none">%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3ed72b',
+      'primaryTextColor': '#000',
+      'primaryBorderColor': '#000',
+      'lineColor': '#fff',
+      'secondaryColor': '#e6f01b',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+
+flowchart LR
+   id1[/cgi-fcgi/]
+   id2[/php-fpm /]
+   id3[ get status]
+   id4[/metrics/]
+   id5[/processid/]
+   id6[/state/]
+   id7[/requests /]
+   id8[/duration/]
+   id1-->id2
+   id2-->id3
+   id3-->id4
+   id3-->id5
+   id3-->id6
+   id3-->id7
+   id3-->id8</pre>
+
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>console<ul>
+<li>php<ul>
+<li>fpm pool</li>
+<li>get pool status<ul>
+<li>metrics</li>
+<li>processid</li>
+<li>state</li>
+<li>requests</li>
+<li>duration</li>
+<li>cpu load</li>
+<li>request memory</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h3 id="install-needed-packages"><a href="#install-needed-packages" class="headerlink" title="install needed packages"></a>install needed packages</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install libfcgi-bin -y</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: library for cgi-fcgi</p>
+</blockquote>
+<h3 id="get-list-of-current-running-php-sockets"><a href="#get-list-of-current-running-php-sockets" class="headerlink" title="get list of current running php sockets"></a>get list of current running php sockets</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /var/run/php/*.sock</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: var&#x2F;run&#x2F;php&#x2F;php7.3-fpm-<a target="_blank" rel="noopener" href="http://www.sock/">www.sock</a> or var&#x2F;run&#x2F;php&#x2F;php7.3-fpm-wwwXXX.sock</p>
+</blockquote>
+<h3 id="Get-status-of-active-pool-worker-with-metrics"><a href="#Get-status-of-active-pool-worker-with-metrics" class="headerlink" title="Get status of active pool worker with metrics"></a>Get status of active pool worker with metrics</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo -u www-data bash -c &quot;export SCRIPT_NAME=/status; export SCRIPT_FILENAME=/status; export QUERY_STRING=full; export REQUEST_METHOD=GET; cgi-fcgi -bind -connect /var/run/php/php7.3-fpm-www.sock&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="output-in-my-case-on-my-server"><a href="#output-in-my-case-on-my-server" class="headerlink" title="output in my case on my server"></a>output in my case on my server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pool:                 www1</span><br><span class="line">process manager:      dynamic</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">accepted conn:        2</span><br><span class="line">listen queue:         0</span><br><span class="line">max listen queue:     0</span><br><span class="line">listen queue len:     0</span><br><span class="line">idle processes:       20</span><br><span class="line">active processes:     1</span><br><span class="line">total processes:      21</span><br><span class="line">max active processes: 1</span><br><span class="line">max children reached: 0</span><br><span class="line">slow requests:        0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17567</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             1</span><br><span class="line">request duration:     826</span><br><span class="line">request method:       GET</span><br><span class="line">request URI:          /status?full</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  2097152</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17568</span><br><span class="line">state:                Running</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             1</span><br><span class="line">request duration:     571</span><br><span class="line">request method:       GET</span><br><span class="line">request URI:          /status?full</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17569</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17570</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17571</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17572</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17573</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17574</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17575</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17576</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17577</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17578</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17579</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17580</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17581</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17582</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17583</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17584</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17585</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17586</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br><span class="line">************************</span><br><span class="line">pid:                  17587</span><br><span class="line">state:                Idle</span><br><span class="line">start time:           14/Dec/2023:01:05:39 +0100</span><br><span class="line">start since:          634</span><br><span class="line">requests:             0</span><br><span class="line">request duration:     0</span><br><span class="line">request method:       -</span><br><span class="line">request URI:          -</span><br><span class="line">content length:       0</span><br><span class="line">user:                 -</span><br><span class="line">script:               -</span><br><span class="line">last request cpu:     0.00</span><br><span class="line">last request memory:  0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>info: in my case my fpm worker has minumum 21 sub worker </p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/console/" rel="tag"># console</a>
+              <a href="/tags/php/" rel="tag"># php</a>
+              <a href="/tags/fpm/" rel="tag"># fpm</a>
+              <a href="/tags/status/" rel="tag"># status</a>
+              <a href="/tags/check/" rel="tag"># check</a>
+              <a href="/tags/socket/" rel="tag"># socket</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/vagrant/virtualbox/provider/provision/create/vagrantfile/howto/" rel="prev" title="Vagrant automation: create two machines  with debian bulleye image with virtualbox provider">
+                  <i class="fa fa-angle-left"></i> Vagrant automation: create two machines  with debian bulleye image with virtualbox provider
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2006 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ayşad Kozanoğlu</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/aysadKozanoglu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.5.0/mermaid.min.js","integrity":"sha256-K7oJiQlDulzl24ZUFOywuYme1JqBBvQzK6m8qHjt9Gk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://aysadkozanoglu.github.io/php/fpm/status/check/console/howto/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>
