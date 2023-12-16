@@ -26,8 +26,8 @@ $(document).ready(function() {
     sum();
     $("#ram-total, #ram-reserved, #ram-buffer, #process-size").on("keydown keyup change", function() {
         sum();
+        generateConfigCopy();
     });
-  generateConfigCopy();
 
   $("buttonCopy").click(function(){
     copyClipboard
